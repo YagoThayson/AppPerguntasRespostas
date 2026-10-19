@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#242433">
+    android:background="@color/azul_escuro">
 
     <ImageView
         android:id="@+id/imageView"
@@ -28,7 +28,7 @@
         android:paddingStart="18dp"
         android:text="Digite Seu Nome"
         android:textAlignment="textStart"
-        android:textColor="#8037373D"
+        android:textColor="@color/cinza_50_opaco"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +44,8 @@
         android:text="INICIAR PARTIDA"
         android:textSize="32sp"
         android:textAlignment="center"
-        android:textColor="#D9D9D9"
-        android:backgroundTint="#4042D6"
+        android:textColor="@color/cinza_claro"
+        android:backgroundTint="@color/azul_vivo"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -58,7 +58,8 @@
         android:text="HISTÓRICO"
         android:textSize="32sp"
         android:textAlignment="center"
-        android:backgroundTint="#4042D6"
+        android:textColor="@color/cinza_claro"
+        android:backgroundTint="@color/azul_vivo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
