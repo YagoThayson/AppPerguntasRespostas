@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="azul_vivo">#4042D6</color>
+    <color name="outro_azul">#5253A3</color>
+    <color name="azul_pastel">#4F4F70</color>
+    <color name="cinza">#37373D</color>
+    <color name="cinza_50_opaco">#8037373D</color>
+    <color name="azul_escuro">#242433</color>
+    <color name="cinza_claro">#D9D9D9</color>
 </resources>
