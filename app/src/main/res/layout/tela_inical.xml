@@ -8,7 +8,7 @@
     android:background="@color/azul_escuro">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ImagemInicial"
         android:layout_width="332dp"
         android:layout_height="194dp"
         android:layout_marginTop="48dp"
@@ -18,26 +18,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/NomeDeUsuario"
         android:layout_width="332dp"
         android:layout_height="48dp"
         android:background="@drawable/text_view_arredondado"
         android:fontFamily="@font/inter"
         android:gravity="center_vertical|start"
         android:paddingStart="18dp"
-        android:text="Digite Seu Nome"
+        android:inputType="text"
+        android:hint="Digite Seu Nome"
+        android:maxLength="20"
         android:textAlignment="textStart"
         android:textColor="@color/cinza_50_opaco"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/IniciarPartida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ImagemInicial" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/IniciarPartida"
         android:layout_width="332dp"
         android:layout_height="112dp"
         android:layout_marginBottom="80dp"
@@ -46,12 +48,12 @@
         android:textAlignment="center"
         android:textColor="@color/cinza_claro"
         android:backgroundTint="@color/azul_vivo"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/Historico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Historico"
         android:layout_width="332dp"
         android:layout_height="112dp"
         android:layout_marginBottom="123dp"
