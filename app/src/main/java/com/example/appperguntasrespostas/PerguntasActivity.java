@@ -21,34 +21,31 @@ public class PerguntasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_perguntas);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        setContentView(R.layout.tela_de_perguntas);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        TextView txtResultado = findViewById(R.id.txtResultado);
-        txtResultado.setText("Carregando...");
-        int qtd_perguntas = 50;
+        TextView quadroDePerguntas = findViewById(R.id.quadroDePerguntas);
+        quadroDePerguntas.setText("Carregando...");
+        int qtd_perguntas = 50; // Depois criar metodos que receberão respotas da tela de configuração de partida. LEMBRE DO MAX DE 50
 
         ConfiguracaoPartida config = new ConfiguracaoPartida(9, "General Knowledge", "easy", qtd_perguntas, 20);
         new OpenTriviaClient().buscarPerguntas(config, new OpenTriviaClient.Callback() {
             @Override
             public void onSucesso(List<Pergunta> perguntas) {
-                StringBuilder sb = new StringBuilder();
-                for (Pergunta p : perguntas) {
-                    sb.append(p.getCategoria()).append(" | ").append(p.getDificuldade()).append("\n");
-                    sb.append(p.getEnunciado()).append("\n");
-                    sb.append("Correta: ").append(p.getRespostaCorreta()).append("\n");
-                    sb.append("Incorretas: ").append(p.getRespostasIncorretas()).append("\n\n");
+                if (perguntas.isEmpty()) {
+                    quadroDePerguntas.setText("Nenhuma pergunta encontrada.");
+                    return;
                 }
-                txtResultado.setText(sb.toString());
+                quadroDePerguntas.setText(perguntas.get(0).getEnunciado());
             }
 
             @Override
             public void onErro(String mensagem) {
-                txtResultado.setText(mensagem);
+                quadroDePerguntas.setText(mensagem);
             }
         });
     }
