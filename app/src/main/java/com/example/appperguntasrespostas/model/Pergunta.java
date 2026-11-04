@@ -18,11 +18,25 @@ public class Pergunta {
         this.respostasIncorretas = respostasIncorretas;
     }
 
-    public long getId() { return id; }
-    public void setId(long id) { this.id = id; }
-    public String getCategoria() { return categoria; }
-    public String getDificuldade() { return dificuldade; }
-    public String getEnunciado() { return enunciado; }
-    public String getRespostaCorreta() { return respostaCorreta; }
-    public List<String> getRespostasIncorretas() { return respostasIncorretas; }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public String getCategoria() {
+        return categoria;
+    }
+    public String getDificuldade() {
+        return dificuldade;
+    }
+    public String getEnunciado() {
+        return enunciado;
+    }
+    public String getRespostaCorreta() {
+        return respostaCorreta;
+    }
+    public List<String> getRespostasIncorretas() {
+        return respostasIncorretas;
+    }
 }

@@ -1,15 +1,14 @@
 package com.example.appperguntasrespostas.model;
 
-// ConfiguracaoPartida.java
+// Se tiver mais alguma configuração que a gente quiser adicionar mandem mensagem no grupo PFVR
 public class ConfiguracaoPartida {
     private int categoriaId;      // id da categoria no Open Trivia DB (ex.: 9 = General Knowledge)
     private String categoriaNome;
     private String dificuldade;   // "easy", "medium" ou "hard"
-    private int quantidade;       // a API aceita de 1 a 50
-    private int tempoPorQuestao;  // em segundos, entre 10 e 60
+    private int quantidade;       // a API aceita de 1 a 50 em uma requesição
+    private int tempoPorQuestao;  // em segundos, ESSE TEMPO VAI SER PADRÃO???
 
-    public ConfiguracaoPartida(int categoriaId, String categoriaNome,
-                               String dificuldade, int quantidade, int tempoPorQuestao) {
+    public ConfiguracaoPartida(int categoriaId, String categoriaNome, String dificuldade, int quantidade, int tempoPorQuestao) {
         this.categoriaId = categoriaId;
         this.categoriaNome = categoriaNome;
         this.dificuldade = dificuldade;

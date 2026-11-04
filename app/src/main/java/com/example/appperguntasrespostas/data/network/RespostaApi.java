@@ -2,6 +2,9 @@ package com.example.appperguntasrespostas.data.network;
 
 import com.example.appperguntasrespostas.model.Pergunta;
 
+
+// Essa classe serve só para pegar os dados da OpenTriviaClient, guardar os dados no objeto e entregar pelos GETTERS.
+
 import java.util.List;
 
 public class RespostaApi {
