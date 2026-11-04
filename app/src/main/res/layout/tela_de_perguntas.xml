@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
@@ -33,6 +34,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
@@ -42,6 +44,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
@@ -51,6 +54,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
