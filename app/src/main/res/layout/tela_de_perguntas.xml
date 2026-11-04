@@ -20,33 +20,45 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Resposta1"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Resposta2"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Resposta3"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/Resposta4"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/azul_pastel"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="24dp">
         </androidx.cardview.widget.CardView>
 
@@ -107,7 +119,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/quadro_de_perguntas"
+        android:id="@+id/quadroDePerguntas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
