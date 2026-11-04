@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnVerPerguntas = findViewById(R.id.btnVerPerguntas);
-        btnVerPerguntas.setOnClickListener(v ->
-                startActivity(new Intent(this, PerguntasActivity.class)));
+        btnVerPerguntas.setOnClickListener(v -> startActivity(new Intent(this, PerguntasActivity.class)));
     }
 }

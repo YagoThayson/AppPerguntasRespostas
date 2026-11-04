@@ -30,8 +30,9 @@ public class PerguntasActivity extends AppCompatActivity {
 
         TextView txtResultado = findViewById(R.id.txtResultado);
         txtResultado.setText("Carregando...");
+        int qtd_perguntas = 50;
 
-        ConfiguracaoPartida config = new ConfiguracaoPartida(9, "General Knowledge", "easy", 5, 20);
+        ConfiguracaoPartida config = new ConfiguracaoPartida(9, "General Knowledge", "easy", qtd_perguntas, 20);
         new OpenTriviaClient().buscarPerguntas(config, new OpenTriviaClient.Callback() {
             @Override
             public void onSucesso(List<Pergunta> perguntas) {
