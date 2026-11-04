@@ -1,6 +1,7 @@
 package com.example.appperguntasrespostas.view;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ public class TelaPerguntas extends AppCompatActivity{
     private View barraEsquerda, barraDireita;
     private ImageButton ajuda1, ajuda2, ajuda3, ajuda4;
     private CardView resposta1, resposta2, resposta3, resposta4;
+    private CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +43,22 @@ public class TelaPerguntas extends AppCompatActivity{
     @Override
     protected void onDestroy(){
         super.onDestroy();
+    }
+
+    private void iniciarCronometro() {
+        if (timer != null) timer.cancel();
+
+        timer = new CountDownTimer(30000, 1000) {
+            @Override
+            public void onTick(long millisRestantes) {
+                txtTempo.setText(String.valueOf(millisRestantes / 1000));
+            }
+
+            @Override
+            public void onFinish() {
+                txtTempo.setText("0");
+                // contar como erro e ir para a próxima
+            }
+        }.start();
     }
 }
