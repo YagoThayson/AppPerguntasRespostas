@@ -16,14 +16,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        setContentView(R.layout.tela_inicial);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        Button btnVerPerguntas = findViewById(R.id.btnVerPerguntas);
-        btnVerPerguntas.setOnClickListener(v -> startActivity(new Intent(this, PerguntasActivity.class)));
+        Button btnIniciarPartida = findViewById(R.id.IniciarPartida);
+        btnIniciarPartida.setOnClickListener(v ->
+                startActivity(new Intent(this, PerguntasActivity.class)));
     }
 }

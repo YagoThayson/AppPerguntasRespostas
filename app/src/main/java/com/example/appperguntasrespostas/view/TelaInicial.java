@@ -8,6 +8,6 @@ public class TelaInicial extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_inical);
+        setContentView(R.layout.tela_inicial);
     }
 }
