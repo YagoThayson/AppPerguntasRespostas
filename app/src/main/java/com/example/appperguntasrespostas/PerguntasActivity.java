@@ -3,6 +3,7 @@ package com.example.appperguntasrespostas;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.util.Log;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -21,6 +22,14 @@ import java.util.List;
 
 public class PerguntasActivity extends AppCompatActivity {
 
+    private Pergunta perguntaAtual;
+    private int acertos = 0;
+    private boolean respondida = false;
+    private List<Pergunta> listaPerguntas;
+    private int indiceAtual = 0;
+    private TextView quadroDePerguntas;
+    private TextView[] txtRespostas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +41,21 @@ public class PerguntasActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextView quadroDePerguntas = findViewById(R.id.quadroDePerguntas);
-        TextView[] txtRespostas = {
+        quadroDePerguntas = findViewById(R.id.quadroDePerguntas);
+        txtRespostas = new TextView[] {
                 findViewById(R.id.txtResposta1),
                 findViewById(R.id.txtResposta2),
                 findViewById(R.id.txtResposta3),
                 findViewById(R.id.txtResposta4)
         };
         quadroDePerguntas.setText("Carregando...");
-        int qtd_perguntas = 50; // Depois criar metodos que receberão respotas da tela de configuração de partida. LEMBRE DO MAX DE 50
+        int qtd_perguntas = 50; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
+        String categoriaNome = "General Knowledge";
+        int categoriaid = 9;
+        String dificuldade = "easy";
+        int tempoPorQuestao = 30;
 
-        ConfiguracaoPartida config = new ConfiguracaoPartida(9, "General Knowledge", "easy", qtd_perguntas, 20);
+        ConfiguracaoPartida config = new ConfiguracaoPartida(categoriaid, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
         new OpenTriviaClient().buscarPerguntas(config, new OpenTriviaClient.Callback() {
 
             @Override
@@ -52,15 +65,35 @@ public class PerguntasActivity extends AppCompatActivity {
                     return;
                 }
 
-                Pergunta p = perguntas.get(0);
-                quadroDePerguntas.setText(p.getEnunciado());
+                listaPerguntas = perguntas;
+                indiceAtual = 0;
+                mostrarPergunta();
 
-                List<String> alternativas = new ArrayList<>(p.getRespostasIncorretas());
-                alternativas.add(p.getRespostaCorreta());
-                Collections.shuffle(alternativas);
+                int[] idsCards = { R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
+                for (int i = 0; i < idsCards.length; i++) {
+                    final int pos = i;
+                    findViewById(idsCards[pos]).setOnClickListener(v -> {
+                        if (respondida) {
+                            return;
+                        }
+                        respondida = true;
 
-                for (int i = 0; i < txtRespostas.length && i < alternativas.size(); i++) {
-                    txtRespostas[i].setText(alternativas.get(i));
+                        String escolhida = txtRespostas[pos].getText().toString();
+                        boolean correta = estaCorreta(escolhida);
+
+                        if (correta) {
+                            acertos++;
+                        }
+
+                        Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
+
+                        indiceAtual++;
+                        if (indiceAtual < listaPerguntas.size()) {
+                            mostrarPergunta();
+                        } else {
+                            Log.d("TRIVIA", "Fim da partida: " + acertos + "/" + listaPerguntas.size());
+                        }
+                    });
                 }
             }
 
@@ -69,5 +102,24 @@ public class PerguntasActivity extends AppCompatActivity {
                 quadroDePerguntas.setText(mensagem);
             }
         });
+    }
+
+    private void mostrarPergunta() {
+        Pergunta p = listaPerguntas.get(indiceAtual);
+        perguntaAtual = p;
+        respondida = false;
+        quadroDePerguntas.setText(p.getEnunciado());
+
+        List<String> alternativas = new ArrayList<>(p.getRespostasIncorretas());
+        alternativas.add(p.getRespostaCorreta());
+        Collections.shuffle(alternativas);
+
+        for (int i = 0; i < txtRespostas.length && i < alternativas.size(); i++) {
+            txtRespostas[i].setText(alternativas.get(i));
+        }
+    }
+
+    private boolean estaCorreta(String escolhida) {
+        return perguntaAtual != null && escolhida.equals(perguntaAtual.getRespostaCorreta());
     }
 }
