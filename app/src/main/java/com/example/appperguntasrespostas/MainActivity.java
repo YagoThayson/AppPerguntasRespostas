@@ -11,8 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.appperguntasrespostas.model.Jogador;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edtNome = findViewById(R.id.NomeDeUsuario);
         Button btnIniciarPartida = findViewById(R.id.IniciarPartida);
-    //Estou fazendo a verificação caso aperte no botão de iniciar a partida, estou
-    // tratando no set do model tbm
+    // Estou fazendo a verificação quando aperta no botão, senti que criar uma classe jogador era desnecessari
+        // então resolvi tornar jogador um atributo da partida, acho que fica mais simples
         btnIniciarPartida.setOnClickListener(v -> {
             String nome = edtNome.getText().toString().trim();
 
@@ -39,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            Jogador jogador = new Jogador(nome);
-
             Intent intent = new Intent(this, PerguntasActivity.class);
-            intent.putExtra("nome_jogador", jogador.getNome());
+            intent.putExtra("nome_jogador", nome);
             startActivity(intent);
         });
     }
