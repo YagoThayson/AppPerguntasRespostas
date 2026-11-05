@@ -18,4 +18,10 @@ public class Jogador {
     public String getNome() {
         return nome;
     }
+
+    public void setNome(String nome) {
+        if(nome != null){
+            this.nome = nome;
+        }
+    }
 }
