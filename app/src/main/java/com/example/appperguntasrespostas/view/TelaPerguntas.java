@@ -14,7 +14,7 @@ import com.example.appperguntasrespostas.R;
 public class TelaPerguntas extends AppCompatActivity{
     private TextView txtTempo, txtPergunta;
     private View barraEsquerda, barraDireita;
-    private ImageButton ajuda1, ajuda2, ajuda3, ajuda4;
+    private ImageButton ajuda1, ajuda2, ajuda3;
     private CardView resposta1, resposta2, resposta3, resposta4;
     private CountDownTimer timer;
 
@@ -29,7 +29,6 @@ public class TelaPerguntas extends AppCompatActivity{
         ajuda1 = findViewById(R.id.ajuda1);
         ajuda2 = findViewById(R.id.ajuda2);
         ajuda3 = findViewById(R.id.ajuda3);
-        ajuda4 = findViewById(R.id.ajuda4);
         resposta1 = findViewById(R.id.Resposta1);
         resposta2 = findViewById(R.id.Resposta2);
         resposta3 = findViewById(R.id.Resposta3);
