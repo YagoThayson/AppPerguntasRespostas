@@ -32,6 +32,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String nomeJogador = getIntent().getStringExtra("nome_jogador");
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
@@ -91,7 +92,7 @@ public class PerguntasActivity extends AppCompatActivity {
                         if (indiceAtual < listaPerguntas.size()) {
                             mostrarPergunta();
                         } else {
-                            Log.d("TRIVIA", "Fim da partida: " + acertos + "/" + listaPerguntas.size());
+                            Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
                         }
                     });
                 }
