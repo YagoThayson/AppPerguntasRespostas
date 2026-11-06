@@ -3,8 +3,10 @@ package com.example.appperguntasrespostas;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -30,6 +32,10 @@ public class PerguntasActivity extends AppCompatActivity {
     private int indiceAtual = 0;
     private TextView quadroDePerguntas;
     private TextView[] txtRespostas;
+    private View barraEsquerda, barraDireita;
+    private CountDownTimer timer;
+    private static final long TEMPO_TOTAL = 30000;
+    private TextView txtTempo;
 
     private boolean ajudaUsada1 = false;
     private boolean ajudaUsada2 = false;
@@ -82,6 +88,9 @@ public class PerguntasActivity extends AppCompatActivity {
             ajudaUsada3 = true;
             Log.d("TRIVIA", "Ajuda usada");
         });
+        barraEsquerda = findViewById(R.id.barraEsquerda);
+        barraDireita = findViewById(R.id.barraDireita);
+        txtTempo = findViewById(R.id.txtTempo);
 
 
         quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
@@ -153,10 +162,50 @@ public class PerguntasActivity extends AppCompatActivity {
         for (int i = 0; i < txtRespostas.length && i < alternativas.size(); i++) {
             txtRespostas[i].setText(alternativas.get(i));
         }
+        iniciarCronometro();
     }
 
     private boolean isCorreta(String escolhida) {
         return escolhida.equals(perguntaAtual.getRespostaCorreta());
+    }
+
+    private void iniciarCronometro() {
+        if (timer != null) timer.cancel();
+
+        // reseta as barras para o tamanho cheio
+        barraEsquerda.setScaleX(1f);
+        barraDireita.setScaleX(1f);
+
+        // pivô: cada barra encolhe em direção ao relógio
+        barraEsquerda.post(() -> {
+            barraEsquerda.setPivotX(barraEsquerda.getWidth()); // lado direito (perto do relógio)
+            barraDireita.setPivotX(0f);                        // lado esquerdo (perto do relógio)
+        });
+
+        timer = new CountDownTimer(TEMPO_TOTAL, 50) {
+            @Override
+            public void onTick(long millisRestantes) {
+                // número: arredonda para cima para mostrar 30 no início e 1 no fim
+                txtTempo.setText(String.valueOf((millisRestantes + 999) / 1000));
+
+                // barras: de 1 (cheia) até 0 (vazia)
+                float proporcao = (float) millisRestantes / TEMPO_TOTAL;
+                barraEsquerda.setScaleX(proporcao);
+                barraDireita.setScaleX(proporcao);
+            }
+
+            @Override
+            public void onFinish() {
+                txtTempo.setText("0");
+                barraEsquerda.setScaleX(0f);
+                barraDireita.setScaleX(0f);
+                tempoEsgotado();
+            }
+        }.start();
+    }
+
+    private void tempoEsgotado() {
+        // aqui: contar como erro e passar para a próxima pergunta
     }
 
 }
