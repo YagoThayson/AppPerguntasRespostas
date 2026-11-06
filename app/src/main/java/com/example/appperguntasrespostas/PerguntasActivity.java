@@ -109,7 +109,7 @@ public class PerguntasActivity extends AppCompatActivity {
             ajudaUsada1 = true;
             v.setEnabled(false);
 
-            Log.d("TRIVIA", "Ajuda usada");
+            Log.d("TRIVIA", "Ajuda 1 usada");
         });
         // Travar a ajuda2
 
@@ -121,7 +121,7 @@ public class PerguntasActivity extends AppCompatActivity {
             ajudaUsada2 = true;
             v.setEnabled(false);
 
-            Log.d("TRIVIA", "Ajuda usada");
+            Log.d("TRIVIA", "Ajuda 2 usada");
         });
     // Travar a ajuda3
         ajuda3.setOnClickListener(v -> {
@@ -132,7 +132,7 @@ public class PerguntasActivity extends AppCompatActivity {
             ajudaUsada3 = true;
             v.setEnabled(false);
 
-            Log.d("TRIVIA", "Ajuda usada");
+            Log.d("TRIVIA", "Ajuda 3 usada");
         });
 
         quadroDePerguntas.setText("Carregando...");
