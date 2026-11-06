@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Intent intent = new Intent(this, PerguntasActivity.class);
-            intent.putExtra("nome_jogador", nome);
+            intent.putExtra("nomeJogador", nome);
             startActivity(intent);
         });
     }
