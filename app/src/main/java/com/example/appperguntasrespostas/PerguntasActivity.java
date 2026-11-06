@@ -6,6 +6,7 @@ import java.util.Collections;
 import android.util.Log;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Button;
 
 
 import androidx.activity.EdgeToEdge;
@@ -30,8 +31,13 @@ public class PerguntasActivity extends AppCompatActivity {
     private TextView quadroDePerguntas;
     private TextView[] txtRespostas;
 
+    private boolean ajudaUsada1 = false;
+    private boolean ajudaUsada2 = false;
+    private boolean ajudaUsada3 = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String nomeJogador = getIntent().getStringExtra("nomeJogador");
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
@@ -48,7 +54,37 @@ public class PerguntasActivity extends AppCompatActivity {
                 findViewById(R.id.txtResposta3),
                 findViewById(R.id.txtResposta4)
         };
-        quadroDePerguntas.setText("Carregando...");
+
+        findViewById(R.id.ajuda1).setOnClickListener(v -> {
+            if (ajudaUsada1) {
+                v.setEnabled(false);
+                Log.d("TRIVIA", "Ajuda já foi usada");
+                return;
+            }
+            ajudaUsada1 = true;
+            Log.d("TRIVIA", "Ajuda usada");
+        });
+        findViewById(R.id.ajuda2).setOnClickListener(v -> {
+            if (ajudaUsada2) {
+                v.setEnabled(false);
+                Log.d("TRIVIA", "Ajuda já foi usada");
+                return;
+            }
+            ajudaUsada2 = true;
+            Log.d("TRIVIA", "Ajuda usada");
+        });
+        findViewById(R.id.ajuda3).setOnClickListener(v -> {
+            if (ajudaUsada3) {
+                Log.d("TRIVIA", "Ajuda já foi usada");
+                v.setEnabled(false);
+                return;
+            }
+            ajudaUsada3 = true;
+            Log.d("TRIVIA", "Ajuda usada");
+        });
+
+
+        quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
         int qtd_perguntas = 50; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
         String categoriaNome = "General Knowledge";
         int categoriaid = 9;
@@ -79,7 +115,7 @@ public class PerguntasActivity extends AppCompatActivity {
                         respondida = true;
 
                         String escolhida = txtRespostas[pos].getText().toString();
-                        boolean correta = estaCorreta(escolhida);
+                        boolean correta = isCorreta(escolhida);
 
                         if (correta) {
                             acertos++;
@@ -91,7 +127,7 @@ public class PerguntasActivity extends AppCompatActivity {
                         if (indiceAtual < listaPerguntas.size()) {
                             mostrarPergunta();
                         } else {
-                            Log.d("TRIVIA", "Fim da partida: " + acertos + "/" + listaPerguntas.size());
+                            Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
                         }
                     });
                 }
@@ -119,7 +155,8 @@ public class PerguntasActivity extends AppCompatActivity {
         }
     }
 
-    private boolean estaCorreta(String escolhida) {
-        return perguntaAtual != null && escolhida.equals(perguntaAtual.getRespostaCorreta());
+    private boolean isCorreta(String escolhida) {
+        return escolhida.equals(perguntaAtual.getRespostaCorreta());
     }
+
 }
