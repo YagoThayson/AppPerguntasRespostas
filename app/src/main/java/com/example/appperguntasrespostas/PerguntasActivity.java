@@ -145,6 +145,7 @@ public class PerguntasActivity extends AppCompatActivity {
                                 arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
                                 arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
                                 // log.d("TRIVIA", "Resultado salvo com sucesso");
+                                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
                             }catch (Exception e ){
                                 Log.e("TRIVIA", "Erro ao criar JSON", e);
                             }
