@@ -85,7 +85,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
 
         quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
-        int qtd_perguntas = 50; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
+        int qtd_perguntas = 10; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
         String categoriaNome = "General Knowledge";
         int categoriaid = 9;
         String dificuldade = "easy";
