@@ -1,0 +1,2657 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many colors are there in a rainbow?",
+      "correct_answer": "7",
+      "incorrect_answers": [
+        "5",
+        "6",
+        "8"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the largest planet in our solar system?",
+      "correct_answer": "Jupiter",
+      "incorrect_answers": [
+        "Saturn",
+        "Neptune",
+        "Earth"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many days are there in a leap year?",
+      "correct_answer": "366",
+      "incorrect_answers": [
+        "365",
+        "364",
+        "367"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which animal is known as the King of the Jungle?",
+      "correct_answer": "Lion",
+      "incorrect_answers": [
+        "Tiger",
+        "Elephant",
+        "Gorilla"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the currency of Japan?",
+      "correct_answer": "Yen",
+      "incorrect_answers": [
+        "Won",
+        "Yuan",
+        "Ringgit"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many continents are there on Earth?",
+      "correct_answer": "7",
+      "incorrect_answers": [
+        "5",
+        "6",
+        "8"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What color are the stars on the flag of the European Union?",
+      "correct_answer": "Yellow",
+      "incorrect_answers": [
+        "White",
+        "Blue",
+        "Red"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which language has the most native speakers worldwide?",
+      "correct_answer": "Mandarin Chinese",
+      "incorrect_answers": [
+        "English",
+        "Spanish",
+        "Hindi"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the hardest natural substance on Earth?",
+      "correct_answer": "Diamond",
+      "incorrect_answers": [
+        "Quartz",
+        "Topaz",
+        "Corundum"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which country gifted the Statue of Liberty to the United States?",
+      "correct_answer": "France",
+      "incorrect_answers": [
+        "United Kingdom",
+        "Spain",
+        "Italy"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many keys does a standard piano have?",
+      "correct_answer": "88",
+      "incorrect_answers": [
+        "76",
+        "92",
+        "100"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the smallest country in the world by area?",
+      "correct_answer": "Vatican City",
+      "incorrect_answers": [
+        "Monaco",
+        "San Marino",
+        "Liechtenstein"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In which year did the Titanic sink?",
+      "correct_answer": "1912",
+      "incorrect_answers": [
+        "1905",
+        "1918",
+        "1921"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the capital of Australia?",
+      "correct_answer": "Canberra",
+      "incorrect_answers": [
+        "Sydney",
+        "Melbourne",
+        "Perth"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which gas do plants absorb from the atmosphere for photosynthesis?",
+      "correct_answer": "Carbon dioxide",
+      "incorrect_answers": [
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many players does a soccer team have on the field?",
+      "correct_answer": "11",
+      "incorrect_answers": [
+        "9",
+        "10",
+        "12"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the longest bone in the human body?",
+      "correct_answer": "Femur",
+      "incorrect_answers": [
+        "Tibia",
+        "Humerus",
+        "Fibula"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which element has the chemical symbol Au?",
+      "correct_answer": "Gold",
+      "incorrect_answers": [
+        "Silver",
+        "Aluminium",
+        "Argon"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the longest river in Europe?",
+      "correct_answer": "Volga",
+      "incorrect_answers": [
+        "Danube",
+        "Rhine",
+        "Dnieper"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which planet has the shortest day in the solar system?",
+      "correct_answer": "Jupiter",
+      "incorrect_answers": [
+        "Mercury",
+        "Mars",
+        "Earth"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is H2O commonly known as?",
+      "correct_answer": "Water",
+      "incorrect_answers": [
+        "Hydrogen peroxide",
+        "Salt",
+        "Ammonia"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which planet is known as the Red Planet?",
+      "correct_answer": "Mars",
+      "incorrect_answers": [
+        "Venus",
+        "Mercury",
+        "Saturn"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many legs does a spider have?",
+      "correct_answer": "8",
+      "incorrect_answers": [
+        "6",
+        "10",
+        "12"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What force keeps us on the ground?",
+      "correct_answer": "Gravity",
+      "incorrect_answers": [
+        "Magnetism",
+        "Friction",
+        "Inertia"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the center of an atom called?",
+      "correct_answer": "Nucleus",
+      "incorrect_answers": [
+        "Electron",
+        "Proton",
+        "Orbit"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which organ pumps blood through the human body?",
+      "correct_answer": "Heart",
+      "incorrect_answers": [
+        "Lungs",
+        "Liver",
+        "Kidney"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the boiling point of water at sea level in degrees Celsius?",
+      "correct_answer": "100",
+      "incorrect_answers": [
+        "90",
+        "110",
+        "120"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the chemical symbol for sodium?",
+      "correct_answer": "Na",
+      "incorrect_answers": [
+        "So",
+        "Sd",
+        "S"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which blood type is known as the universal donor?",
+      "correct_answer": "O negative",
+      "incorrect_answers": [
+        "AB positive",
+        "A positive",
+        "B negative"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the powerhouse of the cell?",
+      "correct_answer": "Mitochondria",
+      "incorrect_answers": [
+        "Ribosome",
+        "Nucleus",
+        "Golgi apparatus"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many bones are in the adult human body?",
+      "correct_answer": "206",
+      "incorrect_answers": [
+        "212",
+        "198",
+        "250"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which gas makes up most of Earth atmosphere?",
+      "correct_answer": "Nitrogen",
+      "incorrect_answers": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Argon"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the approximate speed of light?",
+      "correct_answer": "300,000 km/s",
+      "incorrect_answers": [
+        "150,000 km/s",
+        "30,000 km/s",
+        "3,000,000 km/s"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which vitamin is produced by the skin when exposed to sunlight?",
+      "correct_answer": "Vitamin D",
+      "incorrect_answers": [
+        "Vitamin C",
+        "Vitamin A",
+        "Vitamin K"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the study of fungi called?",
+      "correct_answer": "Mycology",
+      "incorrect_answers": [
+        "Virology",
+        "Botany",
+        "Entomology"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the atomic number of carbon?",
+      "correct_answer": "6",
+      "incorrect_answers": [
+        "8",
+        "12",
+        "14"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which subatomic particle carries a negative charge?",
+      "correct_answer": "Electron",
+      "incorrect_answers": [
+        "Proton",
+        "Neutron",
+        "Photon"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which scientist proposed the theory of general relativity?",
+      "correct_answer": "Albert Einstein",
+      "incorrect_answers": [
+        "Isaac Newton",
+        "Niels Bohr",
+        "Max Planck"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the most abundant element in the universe?",
+      "correct_answer": "Hydrogen",
+      "incorrect_answers": [
+        "Helium",
+        "Oxygen",
+        "Carbon"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the pH of pure water at 25 degrees Celsius?",
+      "correct_answer": "7",
+      "incorrect_answers": [
+        "6",
+        "8",
+        "0"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the capital of France?",
+      "correct_answer": "Paris",
+      "incorrect_answers": [
+        "Lyon",
+        "Marseille",
+        "Nice"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which is the largest ocean on Earth?",
+      "correct_answer": "Pacific Ocean",
+      "incorrect_answers": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which river runs through Egypt?",
+      "correct_answer": "Nile",
+      "incorrect_answers": [
+        "Amazon",
+        "Congo",
+        "Niger"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the capital of Brazil?",
+      "correct_answer": "Brasilia",
+      "incorrect_answers": [
+        "Sao Paulo",
+        "Rio de Janeiro",
+        "Salvador"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "On which continent is Brazil located?",
+      "correct_answer": "South America",
+      "incorrect_answers": [
+        "North America",
+        "Africa",
+        "Europe"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the largest country in the world by area?",
+      "correct_answer": "Russia",
+      "incorrect_answers": [
+        "Canada",
+        "China",
+        "United States"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the capital of Canada?",
+      "correct_answer": "Ottawa",
+      "incorrect_answers": [
+        "Toronto",
+        "Vancouver",
+        "Montreal"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which country has the largest population?",
+      "correct_answer": "India",
+      "incorrect_answers": [
+        "China",
+        "United States",
+        "Indonesia"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In which country is Mount Kilimanjaro located?",
+      "correct_answer": "Tanzania",
+      "incorrect_answers": [
+        "Kenya",
+        "Uganda",
+        "Ethiopia"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the longest river in South America?",
+      "correct_answer": "Amazon",
+      "incorrect_answers": [
+        "Parana",
+        "Orinoco",
+        "Sao Francisco"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which is the largest hot desert in the world?",
+      "correct_answer": "Sahara",
+      "incorrect_answers": [
+        "Gobi",
+        "Kalahari",
+        "Arabian"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the capital of Turkey?",
+      "correct_answer": "Ankara",
+      "incorrect_answers": [
+        "Istanbul",
+        "Izmir",
+        "Bursa"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In which country is the city of Timbuktu?",
+      "correct_answer": "Mali",
+      "incorrect_answers": [
+        "Niger",
+        "Chad",
+        "Senegal"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which strait separates Europe from Africa?",
+      "correct_answer": "Strait of Gibraltar",
+      "incorrect_answers": [
+        "Bosphorus",
+        "Strait of Hormuz",
+        "Strait of Malacca"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the capital of Kazakhstan?",
+      "correct_answer": "Astana",
+      "incorrect_answers": [
+        "Almaty",
+        "Tashkent",
+        "Bishkek"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which is the deepest lake in the world?",
+      "correct_answer": "Lake Baikal",
+      "incorrect_answers": [
+        "Lake Tanganyika",
+        "Lake Superior",
+        "Caspian Sea"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the smallest country in South America by area?",
+      "correct_answer": "Suriname",
+      "incorrect_answers": [
+        "Uruguay",
+        "Guyana",
+        "Ecuador"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which country has the most islands in the world?",
+      "correct_answer": "Sweden",
+      "incorrect_answers": [
+        "Norway",
+        "Finland",
+        "Indonesia"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the capital of Myanmar?",
+      "correct_answer": "Naypyidaw",
+      "incorrect_answers": [
+        "Yangon",
+        "Mandalay",
+        "Bangkok"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which African country was formerly known as Abyssinia?",
+      "correct_answer": "Ethiopia",
+      "incorrect_answers": [
+        "Eritrea",
+        "Sudan",
+        "Somalia"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In which year did World War II end?",
+      "correct_answer": "1945",
+      "incorrect_answers": [
+        "1939",
+        "1918",
+        "1950"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who was the first President of the United States?",
+      "correct_answer": "George Washington",
+      "incorrect_answers": [
+        "Abraham Lincoln",
+        "Thomas Jefferson",
+        "John Adams"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which ancient civilization built the pyramids of Giza?",
+      "correct_answer": "Egyptians",
+      "incorrect_answers": [
+        "Romans",
+        "Greeks",
+        "Mayans"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In which year did Brazil declare independence from Portugal?",
+      "correct_answer": "1822",
+      "incorrect_answers": [
+        "1889",
+        "1500",
+        "1808"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is credited with arriving in Brazil in 1500?",
+      "correct_answer": "Pedro Alvares Cabral",
+      "incorrect_answers": [
+        "Christopher Columbus",
+        "Vasco da Gama",
+        "Ferdinand Magellan"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In which year did the Berlin Wall fall?",
+      "correct_answer": "1989",
+      "incorrect_answers": [
+        "1991",
+        "1985",
+        "1979"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who was the first man to walk on the Moon?",
+      "correct_answer": "Neil Armstrong",
+      "incorrect_answers": [
+        "Buzz Aldrin",
+        "Yuri Gagarin",
+        "John Glenn"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In which year did the French Revolution begin?",
+      "correct_answer": "1789",
+      "incorrect_answers": [
+        "1776",
+        "1804",
+        "1815"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Julius Caesar was a leader of which ancient state?",
+      "correct_answer": "Rome",
+      "incorrect_answers": [
+        "Athens",
+        "Sparta",
+        "Carthage"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who was the British Prime Minister during most of World War II?",
+      "correct_answer": "Winston Churchill",
+      "incorrect_answers": [
+        "Neville Chamberlain",
+        "Clement Attlee",
+        "Margaret Thatcher"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which ship carried the Pilgrims to America in 1620?",
+      "correct_answer": "Mayflower",
+      "incorrect_answers": [
+        "Santa Maria",
+        "Endeavour",
+        "Beagle"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In which year was the Brazilian Republic proclaimed?",
+      "correct_answer": "1889",
+      "incorrect_answers": [
+        "1822",
+        "1888",
+        "1930"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who was the first emperor of Rome?",
+      "correct_answer": "Augustus",
+      "incorrect_answers": [
+        "Julius Caesar",
+        "Nero",
+        "Trajan"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which war was fought between the North and the South in the United States?",
+      "correct_answer": "American Civil War",
+      "incorrect_answers": [
+        "Revolutionary War",
+        "War of 1812",
+        "Spanish-American War"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who was the last Tsar of Russia?",
+      "correct_answer": "Nicholas II",
+      "incorrect_answers": [
+        "Alexander III",
+        "Peter the Great",
+        "Ivan the Terrible"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "The Treaty of Tordesillas divided the New World between which two countries?",
+      "correct_answer": "Spain and Portugal",
+      "incorrect_answers": [
+        "England and France",
+        "Spain and France",
+        "Portugal and Netherlands"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "In which year did the Western Roman Empire fall?",
+      "correct_answer": "476",
+      "incorrect_answers": [
+        "410",
+        "800",
+        "1453"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who led the Haitian Revolution?",
+      "correct_answer": "Toussaint Louverture",
+      "incorrect_answers": [
+        "Simon Bolivar",
+        "Jose de San Martin",
+        "Napoleon Bonaparte"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "In which year was the Magna Carta sealed?",
+      "correct_answer": "1215",
+      "incorrect_answers": [
+        "1066",
+        "1415",
+        "1348"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which battle in 1815 ended the rule of Napoleon?",
+      "correct_answer": "Battle of Waterloo",
+      "incorrect_answers": [
+        "Battle of Austerlitz",
+        "Battle of Trafalgar",
+        "Battle of Leipzig"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many players does a basketball team have on court?",
+      "correct_answer": "5",
+      "incorrect_answers": [
+        "6",
+        "7",
+        "11"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which country won the 2002 FIFA World Cup?",
+      "correct_answer": "Brazil",
+      "incorrect_answers": [
+        "Germany",
+        "France",
+        "Italy"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In which sport would you perform a slam dunk?",
+      "correct_answer": "Basketball",
+      "incorrect_answers": [
+        "Volleyball",
+        "Tennis",
+        "Handball"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many rings are on the Olympic flag?",
+      "correct_answer": "5",
+      "incorrect_answers": [
+        "4",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the maximum score in a single frame of ten-pin bowling?",
+      "correct_answer": "30",
+      "incorrect_answers": [
+        "10",
+        "20",
+        "300"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which country hosted the 2016 Summer Olympics?",
+      "correct_answer": "Brazil",
+      "incorrect_answers": [
+        "China",
+        "United Kingdom",
+        "Japan"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which country has won the most FIFA World Cups?",
+      "correct_answer": "Brazil",
+      "incorrect_answers": [
+        "Germany",
+        "Italy",
+        "Argentina"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How long is a marathon?",
+      "correct_answer": "42.195 km",
+      "incorrect_answers": [
+        "40 km",
+        "21.097 km",
+        "50 km"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In tennis, what is a score of zero called?",
+      "correct_answer": "Love",
+      "incorrect_answers": [
+        "Nil",
+        "Zero",
+        "Duck"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which sprinter is nicknamed Lightning Bolt?",
+      "correct_answer": "Usain Bolt",
+      "incorrect_answers": [
+        "Carl Lewis",
+        "Michael Johnson",
+        "Justin Gatlin"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many Grand Slam tournaments are held in tennis each year?",
+      "correct_answer": "4",
+      "incorrect_answers": [
+        "3",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which country invented the sport of judo?",
+      "correct_answer": "Japan",
+      "incorrect_answers": [
+        "China",
+        "South Korea",
+        "Brazil"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who won the 2022 FIFA World Cup?",
+      "correct_answer": "Argentina",
+      "incorrect_answers": [
+        "France",
+        "Croatia",
+        "Brazil"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many points is a touchdown worth in American football?",
+      "correct_answer": "6",
+      "incorrect_answers": [
+        "7",
+        "3",
+        "5"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which athlete has won the most Olympic gold medals in history?",
+      "correct_answer": "Michael Phelps",
+      "incorrect_answers": [
+        "Usain Bolt",
+        "Larisa Latynina",
+        "Carl Lewis"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "In which city were the first modern Olympic Games held in 1896?",
+      "correct_answer": "Athens",
+      "incorrect_answers": [
+        "Paris",
+        "London",
+        "Rome"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which country won the first FIFA World Cup in 1930?",
+      "correct_answer": "Uruguay",
+      "incorrect_answers": [
+        "Brazil",
+        "Argentina",
+        "Italy"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "How many players per side are on court in volleyball?",
+      "correct_answer": "6",
+      "incorrect_answers": [
+        "5",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the diameter of a basketball hoop in inches?",
+      "correct_answer": "18",
+      "incorrect_answers": [
+        "16",
+        "20",
+        "24"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which player scored the famous Hand of God goal in 1986?",
+      "correct_answer": "Diego Maradona",
+      "incorrect_answers": [
+        "Pele",
+        "Lionel Messi",
+        "Zinedine Zidane"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What does CPU stand for?",
+      "correct_answer": "Central Processing Unit",
+      "incorrect_answers": [
+        "Central Program Utility",
+        "Computer Personal Unit",
+        "Core Processing Utility"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What does HTML stand for?",
+      "correct_answer": "HyperText Markup Language",
+      "incorrect_answers": [
+        "HighText Machine Language",
+        "HyperTool Multi Language",
+        "Hyperlink and Text Markup Language"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which company develops the Windows operating system?",
+      "correct_answer": "Microsoft",
+      "incorrect_answers": [
+        "Apple",
+        "Google",
+        "IBM"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What does RAM stand for?",
+      "correct_answer": "Random Access Memory",
+      "incorrect_answers": [
+        "Read Access Memory",
+        "Rapid Action Memory",
+        "Random Allocation Module"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which language is primarily used for styling web pages?",
+      "correct_answer": "CSS",
+      "incorrect_answers": [
+        "Python",
+        "Java",
+        "SQL"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which language is recommended by Google for modern Android development?",
+      "correct_answer": "Kotlin",
+      "incorrect_answers": [
+        "Swift",
+        "Ruby",
+        "PHP"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What does SQL stand for?",
+      "correct_answer": "Structured Query Language",
+      "incorrect_answers": [
+        "Simple Query Language",
+        "Sequential Query Logic",
+        "Standard Question Language"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What does JSON stand for?",
+      "correct_answer": "JavaScript Object Notation",
+      "incorrect_answers": [
+        "Java Standard Object Notation",
+        "JavaScript Ordered Network",
+        "Java Source Object Name"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which HTTP status code means Not Found?",
+      "correct_answer": "404",
+      "incorrect_answers": [
+        "500",
+        "403",
+        "200"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the decimal number 5 in binary?",
+      "correct_answer": "101",
+      "incorrect_answers": [
+        "110",
+        "111",
+        "100"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who created the Linux kernel?",
+      "correct_answer": "Linus Torvalds",
+      "incorrect_answers": [
+        "Bill Gates",
+        "Richard Stallman",
+        "Dennis Ritchie"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What does API stand for?",
+      "correct_answer": "Application Programming Interface",
+      "incorrect_answers": [
+        "Applied Program Integration",
+        "Automated Process Interface",
+        "Application Process Index"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which data structure follows the LIFO principle?",
+      "correct_answer": "Stack",
+      "incorrect_answers": [
+        "Queue",
+        "Array",
+        "Tree"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What does GPU stand for?",
+      "correct_answer": "Graphics Processing Unit",
+      "incorrect_answers": [
+        "General Processing Unit",
+        "Graphical Program Utility",
+        "Game Performance Unit"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the time complexity of binary search?",
+      "correct_answer": "O(log n)",
+      "incorrect_answers": [
+        "O(n)",
+        "O(n log n)",
+        "O(1)"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which company originally created the Java programming language?",
+      "correct_answer": "Sun Microsystems",
+      "incorrect_answers": [
+        "IBM",
+        "Apple",
+        "Netscape"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What does DNS stand for?",
+      "correct_answer": "Domain Name System",
+      "incorrect_answers": [
+        "Digital Network Service",
+        "Data Name Server",
+        "Domain Network Security"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which sorting algorithm has an average time complexity of O(n log n)?",
+      "correct_answer": "Merge sort",
+      "incorrect_answers": [
+        "Bubble sort",
+        "Insertion sort",
+        "Selection sort"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the default port for HTTPS?",
+      "correct_answer": "443",
+      "incorrect_answers": [
+        "80",
+        "8080",
+        "21"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which Git command creates a local copy of a remote repository?",
+      "correct_answer": "git clone",
+      "incorrect_answers": [
+        "git commit",
+        "git fork",
+        "git copy"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which film features a clownfish searching for his son?",
+      "correct_answer": "Finding Nemo",
+      "incorrect_answers": [
+        "Shark Tale",
+        "Moana",
+        "The Little Mermaid"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who directed Jurassic Park?",
+      "correct_answer": "Steven Spielberg",
+      "incorrect_answers": [
+        "James Cameron",
+        "George Lucas",
+        "Ridley Scott"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In which film does the character Simba appear?",
+      "correct_answer": "The Lion King",
+      "incorrect_answers": [
+        "Madagascar",
+        "Tarzan",
+        "Bambi"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which franchise features Jedi knights and lightsabers?",
+      "correct_answer": "Star Wars",
+      "incorrect_answers": [
+        "Star Trek",
+        "Dune",
+        "Avatar"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the name of the toy cowboy in Toy Story?",
+      "correct_answer": "Woody",
+      "incorrect_answers": [
+        "Buzz",
+        "Rex",
+        "Slinky"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which series follows a young wizard at Hogwarts?",
+      "correct_answer": "Harry Potter",
+      "incorrect_answers": [
+        "The Hobbit",
+        "Percy Jackson",
+        "Narnia"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which South Korean film won the Best Picture Oscar in 2020?",
+      "correct_answer": "Parasite",
+      "incorrect_answers": [
+        "Minari",
+        "Burning",
+        "Train to Busan"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who directed the 1997 film Titanic?",
+      "correct_answer": "James Cameron",
+      "incorrect_answers": [
+        "Steven Spielberg",
+        "Christopher Nolan",
+        "Martin Scorsese"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who played Jack Sparrow in Pirates of the Caribbean?",
+      "correct_answer": "Johnny Depp",
+      "incorrect_answers": [
+        "Orlando Bloom",
+        "Brad Pitt",
+        "Tom Cruise"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which director made the film Inception?",
+      "correct_answer": "Christopher Nolan",
+      "incorrect_answers": [
+        "Denis Villeneuve",
+        "Quentin Tarantino",
+        "David Fincher"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In The Matrix, which color pill does Neo take?",
+      "correct_answer": "Red",
+      "incorrect_answers": [
+        "Blue",
+        "Green",
+        "Yellow"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which film started the Marvel Cinematic Universe?",
+      "correct_answer": "Iron Man",
+      "incorrect_answers": [
+        "Thor",
+        "The Avengers",
+        "Captain America"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which Brazilian film directed by Fernando Meirelles is set in the favelas of Rio?",
+      "correct_answer": "City of God",
+      "incorrect_answers": [
+        "Elite Squad",
+        "Central Station",
+        "Bus 174"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who voiced Woody in the original Toy Story?",
+      "correct_answer": "Tom Hanks",
+      "incorrect_answers": [
+        "Tim Allen",
+        "Robin Williams",
+        "Billy Crystal"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who directed Pulp Fiction?",
+      "correct_answer": "Quentin Tarantino",
+      "incorrect_answers": [
+        "Martin Scorsese",
+        "Guy Ritchie",
+        "Oliver Stone"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which actor played the Joker in The Dark Knight?",
+      "correct_answer": "Heath Ledger",
+      "incorrect_answers": [
+        "Joaquin Phoenix",
+        "Jared Leto",
+        "Jack Nicholson"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which was the first full-length animated feature film by Disney?",
+      "correct_answer": "Snow White and the Seven Dwarfs",
+      "incorrect_answers": [
+        "Pinocchio",
+        "Bambi",
+        "Cinderella"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who composed the music for the original Star Wars?",
+      "correct_answer": "John Williams",
+      "incorrect_answers": [
+        "Hans Zimmer",
+        "Ennio Morricone",
+        "Howard Shore"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which 1994 film stars Tim Robbins and Morgan Freeman in a prison?",
+      "correct_answer": "The Shawshank Redemption",
+      "incorrect_answers": [
+        "The Green Mile",
+        "Escape from Alcatraz",
+        "American History X"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which Alfred Hitchcock film takes place at the Bates Motel?",
+      "correct_answer": "Psycho",
+      "incorrect_answers": [
+        "Vertigo",
+        "Rear Window",
+        "The Birds"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which band was fronted by Freddie Mercury?",
+      "correct_answer": "Queen",
+      "incorrect_answers": [
+        "The Beatles",
+        "Led Zeppelin",
+        "The Rolling Stones"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many strings does a standard guitar have?",
+      "correct_answer": "6",
+      "incorrect_answers": [
+        "4",
+        "5",
+        "8"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which instrument has black and white keys?",
+      "correct_answer": "Piano",
+      "incorrect_answers": [
+        "Violin",
+        "Flute",
+        "Drums"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which singer is known as the King of Pop?",
+      "correct_answer": "Michael Jackson",
+      "incorrect_answers": [
+        "Elvis Presley",
+        "Prince",
+        "Justin Bieber"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Brazilian genre of the 1950s is associated with Joao Gilberto?",
+      "correct_answer": "Bossa Nova",
+      "incorrect_answers": [
+        "Forro",
+        "Sertanejo",
+        "Axe"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which musical genre is Bob Marley famous for?",
+      "correct_answer": "Reggae",
+      "incorrect_answers": [
+        "Rock",
+        "Jazz",
+        "Country"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which band released the album Abbey Road?",
+      "correct_answer": "The Beatles",
+      "incorrect_answers": [
+        "Pink Floyd",
+        "The Who",
+        "The Kinks"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who composed The Four Seasons?",
+      "correct_answer": "Antonio Vivaldi",
+      "incorrect_answers": [
+        "Johann Sebastian Bach",
+        "Mozart",
+        "Beethoven"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which Brazilian composer wrote Garota de Ipanema with Vinicius de Moraes?",
+      "correct_answer": "Tom Jobim",
+      "incorrect_answers": [
+        "Caetano Veloso",
+        "Gilberto Gil",
+        "Chico Buarque"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which instrument is Yo-Yo Ma famous for playing?",
+      "correct_answer": "Cello",
+      "incorrect_answers": [
+        "Violin",
+        "Piano",
+        "Flute"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which singer released the album 21 in 2011?",
+      "correct_answer": "Adele",
+      "incorrect_answers": [
+        "Beyonce",
+        "Rihanna",
+        "Lady Gaga"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Mick Jagger is the lead singer of which band?",
+      "correct_answer": "The Rolling Stones",
+      "incorrect_answers": [
+        "Queen",
+        "The Doors",
+        "AC/DC"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many members were in the classic Beatles lineup?",
+      "correct_answer": "4",
+      "incorrect_answers": [
+        "3",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which composer continued to write music after becoming deaf?",
+      "correct_answer": "Ludwig van Beethoven",
+      "incorrect_answers": [
+        "Mozart",
+        "Bach",
+        "Chopin"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which musical term means gradually getting louder?",
+      "correct_answer": "Crescendo",
+      "incorrect_answers": [
+        "Diminuendo",
+        "Staccato",
+        "Legato"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which Pink Floyd album was released in 1973?",
+      "correct_answer": "The Dark Side of the Moon",
+      "incorrect_answers": [
+        "The Wall",
+        "Animals",
+        "Meddle"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who is known as the Queen of Soul?",
+      "correct_answer": "Aretha Franklin",
+      "incorrect_answers": [
+        "Whitney Houston",
+        "Diana Ross",
+        "Tina Turner"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Renato Russo was the singer of which Brazilian band?",
+      "correct_answer": "Legiao Urbana",
+      "incorrect_answers": [
+        "Os Paralamas do Sucesso",
+        "Titas",
+        "Barao Vermelho"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "In which country does the band ABBA come from?",
+      "correct_answer": "Sweden",
+      "incorrect_answers": [
+        "Norway",
+        "Denmark",
+        "Finland"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which note value equals four beats in 4/4 time?",
+      "correct_answer": "Whole note",
+      "incorrect_answers": [
+        "Half note",
+        "Quarter note",
+        "Eighth note"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the king of the Greek gods?",
+      "correct_answer": "Zeus",
+      "incorrect_answers": [
+        "Poseidon",
+        "Hades",
+        "Apollo"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the Greek god of the sea?",
+      "correct_answer": "Poseidon",
+      "incorrect_answers": [
+        "Zeus",
+        "Ares",
+        "Hermes"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Roman god is equivalent to the Greek god Zeus?",
+      "correct_answer": "Jupiter",
+      "incorrect_answers": [
+        "Mars",
+        "Neptune",
+        "Apollo"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the Norse god of thunder?",
+      "correct_answer": "Thor",
+      "incorrect_answers": [
+        "Odin",
+        "Loki",
+        "Freyr"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which creature has the head of a bull and the body of a man?",
+      "correct_answer": "Minotaur",
+      "incorrect_answers": [
+        "Centaur",
+        "Cyclops",
+        "Satyr"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Egyptian god has the head of a falcon?",
+      "correct_answer": "Horus",
+      "incorrect_answers": [
+        "Anubis",
+        "Thoth",
+        "Osiris"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who is the Greek goddess of wisdom?",
+      "correct_answer": "Athena",
+      "incorrect_answers": [
+        "Hera",
+        "Artemis",
+        "Aphrodite"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which hero killed Medusa?",
+      "correct_answer": "Perseus",
+      "incorrect_answers": [
+        "Hercules",
+        "Theseus",
+        "Achilles"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the name of the eight-legged horse of Odin?",
+      "correct_answer": "Sleipnir",
+      "incorrect_answers": [
+        "Fenrir",
+        "Jormungandr",
+        "Hugin"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who is the Greek god of the underworld?",
+      "correct_answer": "Hades",
+      "incorrect_answers": [
+        "Ares",
+        "Hephaestus",
+        "Dionysus"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which hero had to complete twelve labors?",
+      "correct_answer": "Hercules",
+      "incorrect_answers": [
+        "Odysseus",
+        "Jason",
+        "Perseus"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which Egyptian god has the head of a jackal?",
+      "correct_answer": "Anubis",
+      "incorrect_answers": [
+        "Ra",
+        "Set",
+        "Sobek"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which Brazilian folklore figure has backward-facing feet and protects the forests?",
+      "correct_answer": "Curupira",
+      "incorrect_answers": [
+        "Saci",
+        "Boitata",
+        "Iara"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which Greek Titan was condemned to hold up the sky?",
+      "correct_answer": "Atlas",
+      "incorrect_answers": [
+        "Cronus",
+        "Prometheus",
+        "Hyperion"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the name of the three-headed dog that guards the underworld?",
+      "correct_answer": "Cerberus",
+      "incorrect_answers": [
+        "Fenrir",
+        "Orthrus",
+        "Garm"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who flew too close to the sun with wings made of wax?",
+      "correct_answer": "Icarus",
+      "incorrect_answers": [
+        "Daedalus",
+        "Phaethon",
+        "Bellerophon"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which Norse tree connects the nine worlds?",
+      "correct_answer": "Yggdrasil",
+      "incorrect_answers": [
+        "Asgard",
+        "Bifrost",
+        "Valhalla"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who was the Roman goddess of love?",
+      "correct_answer": "Venus",
+      "incorrect_answers": [
+        "Juno",
+        "Minerva",
+        "Diana"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who was the Greek goddess of the harvest?",
+      "correct_answer": "Demeter",
+      "incorrect_answers": [
+        "Hestia",
+        "Persephone",
+        "Gaia"
+      ]
+    },
+    {
+      "category": "Mythology",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which hero led the Argonauts in search of the Golden Fleece?",
+      "correct_answer": "Jason",
+      "incorrect_answers": [
+        "Theseus",
+        "Perseus",
+        "Hector"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who painted the Mona Lisa?",
+      "correct_answer": "Leonardo da Vinci",
+      "incorrect_answers": [
+        "Michelangelo",
+        "Raphael",
+        "Donatello"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which artist painted The Starry Night?",
+      "correct_answer": "Vincent van Gogh",
+      "incorrect_answers": [
+        "Claude Monet",
+        "Pablo Picasso",
+        "Salvador Dali"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which are the three primary colors in traditional painting?",
+      "correct_answer": "Red, yellow and blue",
+      "incorrect_answers": [
+        "Red, green and orange",
+        "Blue, green and purple",
+        "Yellow, orange and pink"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which artist co-founded Cubism together with Georges Braque?",
+      "correct_answer": "Pablo Picasso",
+      "incorrect_answers": [
+        "Henri Matisse",
+        "Paul Cezanne",
+        "Joan Miro"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Paris museum houses the Mona Lisa?",
+      "correct_answer": "The Louvre",
+      "incorrect_answers": [
+        "Musee d Orsay",
+        "Centre Pompidou",
+        "Rodin Museum"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Brazilian artist painted Abaporu?",
+      "correct_answer": "Tarsila do Amaral",
+      "incorrect_answers": [
+        "Candido Portinari",
+        "Di Cavalcanti",
+        "Anita Malfatti"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who sculpted David in Florence?",
+      "correct_answer": "Michelangelo",
+      "incorrect_answers": [
+        "Donatello",
+        "Bernini",
+        "Rodin"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which art movement is Claude Monet associated with?",
+      "correct_answer": "Impressionism",
+      "incorrect_answers": [
+        "Cubism",
+        "Surrealism",
+        "Baroque"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which artist painted The Persistence of Memory?",
+      "correct_answer": "Salvador Dali",
+      "incorrect_answers": [
+        "Rene Magritte",
+        "Max Ernst",
+        "Joan Miro"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who painted The Last Supper?",
+      "correct_answer": "Leonardo da Vinci",
+      "incorrect_answers": [
+        "Raphael",
+        "Caravaggio",
+        "Titian"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which Dutch painter created Girl with a Pearl Earring?",
+      "correct_answer": "Johannes Vermeer",
+      "incorrect_answers": [
+        "Rembrandt",
+        "Frans Hals",
+        "Piet Mondrian"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who painted Guernica?",
+      "correct_answer": "Pablo Picasso",
+      "incorrect_answers": [
+        "Francisco Goya",
+        "Diego Velazquez",
+        "Joan Miro"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which architect designed the main public buildings of Brasilia?",
+      "correct_answer": "Oscar Niemeyer",
+      "incorrect_answers": [
+        "Lucio Costa",
+        "Le Corbusier",
+        "Frank Lloyd Wright"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Who created the sculpture The Thinker?",
+      "correct_answer": "Auguste Rodin",
+      "incorrect_answers": [
+        "Michelangelo",
+        "Camille Claudel",
+        "Donatello"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which Mexican painter is famous for her many self-portraits?",
+      "correct_answer": "Frida Kahlo",
+      "incorrect_answers": [
+        "Diego Rivera",
+        "Remedios Varo",
+        "Rufino Tamayo"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who painted The Birth of Venus?",
+      "correct_answer": "Sandro Botticelli",
+      "incorrect_answers": [
+        "Titian",
+        "Raphael",
+        "Giorgione"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which art movement was led by the writer Andre Breton?",
+      "correct_answer": "Surrealism",
+      "incorrect_answers": [
+        "Dadaism",
+        "Futurism",
+        "Pop Art"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which artist is famous for Pop Art works about soup cans?",
+      "correct_answer": "Andy Warhol",
+      "incorrect_answers": [
+        "Roy Lichtenstein",
+        "Jasper Johns",
+        "Keith Haring"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which painter created The Scream?",
+      "correct_answer": "Edvard Munch",
+      "incorrect_answers": [
+        "Gustav Klimt",
+        "Egon Schiele",
+        "Paul Gauguin"
+      ]
+    },
+    {
+      "category": "Art",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "correct_answer": "Michelangelo",
+      "incorrect_answers": [
+        "Raphael",
+        "Botticelli",
+        "Leonardo da Vinci"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the largest land animal?",
+      "correct_answer": "African elephant",
+      "incorrect_answers": [
+        "Giraffe",
+        "Rhinoceros",
+        "Hippopotamus"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many legs does an insect have?",
+      "correct_answer": "6",
+      "incorrect_answers": [
+        "4",
+        "8",
+        "10"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What do giant pandas mainly eat?",
+      "correct_answer": "Bamboo",
+      "incorrect_answers": [
+        "Fish",
+        "Meat",
+        "Fruit"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which animal is the fastest on land?",
+      "correct_answer": "Cheetah",
+      "incorrect_answers": [
+        "Lion",
+        "Horse",
+        "Leopard"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is a baby kangaroo called?",
+      "correct_answer": "Joey",
+      "incorrect_answers": [
+        "Cub",
+        "Calf",
+        "Pup"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which flightless bird lives in Antarctica?",
+      "correct_answer": "Penguin",
+      "incorrect_answers": [
+        "Ostrich",
+        "Emu",
+        "Kiwi"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the largest animal on Earth?",
+      "correct_answer": "Blue whale",
+      "incorrect_answers": [
+        "African elephant",
+        "Giant squid",
+        "Whale shark"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which mammal is capable of true flight?",
+      "correct_answer": "Bat",
+      "incorrect_answers": [
+        "Flying squirrel",
+        "Colugo",
+        "Sugar glider"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many hearts does an octopus have?",
+      "correct_answer": "3",
+      "incorrect_answers": [
+        "1",
+        "2",
+        "4"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is a group of lions called?",
+      "correct_answer": "Pride",
+      "incorrect_answers": [
+        "Pack",
+        "Herd",
+        "Flock"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which animal is famous for changing color to camouflage itself?",
+      "correct_answer": "Chameleon",
+      "incorrect_answers": [
+        "Iguana",
+        "Gecko",
+        "Komodo dragon"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which big cat is native to the Amazon rainforest?",
+      "correct_answer": "Jaguar",
+      "incorrect_answers": [
+        "Tiger",
+        "Lion",
+        "Leopard"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which insect produces honey?",
+      "correct_answer": "Bee",
+      "incorrect_answers": [
+        "Wasp",
+        "Ant",
+        "Butterfly"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which of these mammals lays eggs?",
+      "correct_answer": "Platypus",
+      "incorrect_answers": [
+        "Koala",
+        "Opossum",
+        "Armadillo"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What do we call an animal that eats only plants?",
+      "correct_answer": "Herbivore",
+      "incorrect_answers": [
+        "Carnivore",
+        "Omnivore",
+        "Insectivore"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which vertebrate has the longest known lifespan?",
+      "correct_answer": "Greenland shark",
+      "incorrect_answers": [
+        "Galapagos tortoise",
+        "Bowhead whale",
+        "Koi fish"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the scientific name of the domestic dog?",
+      "correct_answer": "Canis lupus familiaris",
+      "incorrect_answers": [
+        "Canis latrans",
+        "Felis catus",
+        "Canis rufus"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which bird has the largest wingspan?",
+      "correct_answer": "Wandering albatross",
+      "incorrect_answers": [
+        "Andean condor",
+        "Bald eagle",
+        "Great white pelican"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which bird is the fastest in a dive?",
+      "correct_answer": "Peregrine falcon",
+      "incorrect_answers": [
+        "Golden eagle",
+        "Swift",
+        "Osprey"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "How many chambers does a bird heart have?",
+      "correct_answer": "4",
+      "incorrect_answers": [
+        "2",
+        "3",
+        "5"
+      ]
+    },
+    {
+      "category": "Animals",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which is the largest living species of lizard?",
+      "correct_answer": "Komodo dragon",
+      "incorrect_answers": [
+        "Green iguana",
+        "Nile monitor",
+        "Gila monster"
+      ]
+    }
+  ]
+}

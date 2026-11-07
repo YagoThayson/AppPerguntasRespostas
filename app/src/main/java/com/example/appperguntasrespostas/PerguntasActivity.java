@@ -1,5 +1,6 @@
 package com.example.appperguntasrespostas;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,11 +11,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 
-// Bibliotecas para CRIAR O JSON das partidas
+// Bibliotecas para CRIAR O JSON das partidas e JSON de perguntas
 import org.json.JSONObject;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.InputStream;
+import java.util.Scanner;
+import org.json.JSONArray;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +30,7 @@ import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import com.example.appperguntasrespostas.model.Pergunta;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class PerguntasActivity extends AppCompatActivity {
 
@@ -45,6 +49,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private boolean ajudaUsada1 = false;
     private boolean ajudaUsada2 = false;
     private boolean ajudaUsada3 = false;
+    private static final int[] IDS_CARDS ={ R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,33 +71,10 @@ public class PerguntasActivity extends AppCompatActivity {
                 findViewById(R.id.txtResposta4)
         };
 
-        findViewById(R.id.ajuda1).setOnClickListener(v -> {
-            if (ajudaUsada1) {
-                v.setEnabled(false);
-                Log.d("TRIVIA", "Ajuda já foi usada");
-                return;
-            }
-            ajudaUsada1 = true;
-            Log.d("TRIVIA", "Ajuda usada");
-        });
-        findViewById(R.id.ajuda2).setOnClickListener(v -> {
-            if (ajudaUsada2) {
-                v.setEnabled(false);
-                Log.d("TRIVIA", "Ajuda já foi usada");
-                return;
-            }
-            ajudaUsada2 = true;
-            Log.d("TRIVIA", "Ajuda usada");
-        });
-        findViewById(R.id.ajuda3).setOnClickListener(v -> {
-            if (ajudaUsada3) {
-                Log.d("TRIVIA", "Ajuda já foi usada");
-                v.setEnabled(false);
-                return;
-            }
-            ajudaUsada3 = true;
-            Log.d("TRIVIA", "Ajuda usada");
-        });
+        findViewById(R.id.ajuda1).setOnClickListener(v -> ajuda1Metade());
+        findViewById(R.id.ajuda2).setOnClickListener(v -> ajuda2RespostaCorreta());
+        findViewById(R.id.ajuda3).setOnClickListener(v -> ajuda3PularPergunta());
+
         barraEsquerda = findViewById(R.id.barraEsquerda);
         barraDireita = findViewById(R.id.barraDireita);
         txtTempo = findViewById(R.id.txtTempo);
@@ -148,12 +130,13 @@ public class PerguntasActivity extends AppCompatActivity {
                                 resultado.put("jogador", nomeJogador);
                                 resultado.put("acertos", acertos);
                                 resultado.put("totalPerguntas", listaPerguntas.size());
+                                resultado.put("dificuldade", dificuldade);
 
                                 // Escrever e salvar arquivo JSON para ter persistência de DADOS
                                 FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
                                 arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
                                 arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
-                                // log.d("TRIVIA", "Resultado salvo com sucesso");
+                                Log.d("TRIVIA", "Resultado salvo com sucesso");
                                 // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
                             }catch (Exception e ){
                                 Log.e("TRIVIA", "Erro ao criar JSON", e);
@@ -170,7 +153,10 @@ public class PerguntasActivity extends AppCompatActivity {
 
             @Override
             public void onErro(String mensagem) {
-                quadroDePerguntas.setText(mensagem);
+                Log.e("TRIVIA", "Entrou no onErro!");
+                // Log.e("TRIVIA", "Erro ao carregar perguntas na API");
+                carregarPerguntasLocais();
+
             }
         });
     }
@@ -234,4 +220,97 @@ public class PerguntasActivity extends AppCompatActivity {
         // aqui: contar como erro e passar para a próxima pergunta
     }
 
+    private void ajuda1Metade() {
+        if(ajudaUsada1){
+            return;
+        }
+        ajudaUsada1 = true;
+
+        List<Integer> posicoesErradas = new ArrayList<>();
+
+        for (int i = 0; i < txtRespostas.length; i++) {
+            // Como esse textview não é uma String propriamente dita, só fucniona se eu pegar o texto e converter para String.
+            if(!txtRespostas[i].getText().toString().equals(perguntaAtual.getRespostaCorreta())){
+                posicoesErradas.add(i);
+            }
+        }
+        Collections.shuffle(posicoesErradas);
+
+        for(int i = 0; i < 2; i++){
+            findViewById(IDS_CARDS[posicoesErradas.get(i)]).setEnabled(false);
+            Log.d("TRIVIA", "Ajuda 1: Elimina a posição " + posicoesErradas.get(i));
+            // TODO: DEPOIS substituir esse log pela logica do frontend
+        }
+
+    }
+    private void ajuda2RespostaCorreta() {
+        if(ajudaUsada2){
+            return;
+        }
+        ajudaUsada2 = true;
+        String correta = perguntaAtual.getRespostaCorreta();
+
+        for (int i = 0; i < txtRespostas.length; i++) {
+            if (txtRespostas[i].getText().toString().equals(correta)) {
+                // TODO: DEPOIS destacar o card da posição i, que vai ser o card da posição correta.
+                Log.d("TRIVIA", "Ajuda 2: a correta está na posição " + i);
+            }
+        }
+    }
+    private void ajuda3PularPergunta() {
+        if(ajudaUsada3){
+            return;
+        }
+        ajudaUsada3 = true;
+
+    }
+
+    private void carregarPerguntasLocais() {
+        try {
+            // Vamos mover para a pasta RAW pq existem um metodo para acessar ela de forma facinha
+            InputStream arquivo = getResources().openRawResource(R.raw.perguntas);
+            // Tava dando erro, antes dessa linha, ele só lia até o primeiro espaço em branco
+            Scanner scanner = new Scanner(arquivo).useDelimiter("\\Z");
+
+            // Ai a gente armazena esse SCAN em uma variavel para depois transformar em um JSONObject
+            String conteudo = "";
+            if (scanner.hasNext()) {
+                conteudo = scanner.next();
+            }
+            scanner.close();
+
+            //Pega a string conteudo e transforma em um objeto do tipo JSONObject
+            JSONObject json = new JSONObject(conteudo);
+            JSONArray resultados = json.getJSONArray("results");
+
+            //  Como não dá para usar direto o respostasJson pq respostas incorretas é uma lists e não um JSONArray, criamos outra lista
+            listaPerguntas = new ArrayList<>();
+            for (int i = 0; i < resultados.length(); i++) {
+                JSONObject item = resultados.getJSONObject(i);
+
+                JSONArray respostasJson = item.getJSONArray("incorrect_answers");
+                List<String> incorretas = new ArrayList<>();
+
+                for (int j = 0; j < respostasJson.length(); j++) {
+                    incorretas.add(respostasJson.getString(j));
+                }
+
+                // depois de percorrer as respostas eu crio o objeto pergunta
+                listaPerguntas.add(new Pergunta(
+                        item.getString("category"),
+                        item.getString("difficulty"),
+                        item.getString("question"),
+                        item.getString("correct_answer"),
+                        incorretas
+                ));
+            }
+
+            indiceAtual = 0; // só para começar pela primeira pergunta
+            Collections.shuffle(listaPerguntas);
+            mostrarPergunta();
+
+        } catch (Exception e) {
+            Log.e("TRIVIA", "Erro ao carregar perguntas locais", e);
+        }
+    }
 }
