@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
@@ -45,10 +46,11 @@ public class PerguntasActivity extends AppCompatActivity {
     private boolean ajudaUsada1 = false;
     private boolean ajudaUsada2 = false;
     private boolean ajudaUsada3 = false;
+    private String nomeJogador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String nomeJogador = getIntent().getStringExtra("nomeJogador");
+        nomeJogador = getIntent().getStringExtra("nomeJogador");
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
@@ -130,40 +132,41 @@ public class PerguntasActivity extends AppCompatActivity {
 
                         String escolhida = txtRespostas[pos].getText().toString();
                         boolean correta = isCorreta(escolhida);
+                        processarResposta(correta,escolhida);
 
-                        if (correta) {
-                            acertos++;
-                        }
-
-                        Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
-
-                        indiceAtual++;
-                        if (indiceAtual < listaPerguntas.size()) {
-                            mostrarPergunta();
-                        } else {
-                            try {
-                                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
-                                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
-                                JSONObject resultado = new JSONObject();
-                                resultado.put("jogador", nomeJogador);
-                                resultado.put("acertos", acertos);
-                                resultado.put("totalPerguntas", listaPerguntas.size());
-
-                                // Escrever e salvar arquivo JSON para ter persistência de DADOS
-                                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
-                                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
-                                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
-                                // log.d("TRIVIA", "Resultado salvo com sucesso");
-                                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
-                            }catch (Exception e ){
-                                Log.e("TRIVIA", "Erro ao criar JSON", e);
-                            }
-
-
-                            // Log.d("TRIVIA", resultado.toString(4));
-
-
-                        }
+//                        if (correta) {
+//                            acertos++;
+//                        }
+//
+//                        Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
+//
+//                        indiceAtual++;
+//                        if (indiceAtual < listaPerguntas.size()) {
+//                            mostrarPergunta();
+//                        } else {
+//                            try {
+//                                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
+//                                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
+//                                JSONObject resultado = new JSONObject();
+//                                resultado.put("jogador", nomeJogador);
+//                                resultado.put("acertos", acertos);
+//                                resultado.put("totalPerguntas", listaPerguntas.size());
+//
+//                                // Escrever e salvar arquivo JSON para ter persistência de DADOS
+//                                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
+//                                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
+//                                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
+//                                // log.d("TRIVIA", "Resultado salvo com sucesso");
+//                                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
+//                            }catch (Exception e ){
+//                                Log.e("TRIVIA", "Erro ao criar JSON", e);
+//                            }
+//
+//
+//                            // Log.d("TRIVIA", resultado.toString(4));
+//
+//
+//                        }
                     });
                 }
             }
@@ -233,7 +236,76 @@ public class PerguntasActivity extends AppCompatActivity {
     private void tempoEsgotado() {
         findViewById(R.id.container_tempo_esgotado).setVisibility(View.VISIBLE);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_tempo_esgotado, new TempoEsgotado()).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_tempo_esgotado, new TempoEsgotado())
+                .commit();
+    }
+
+    public void continuarAposTempoEsgotado() {
+
+        Fragment fragment = getSupportFragmentManager()
+                .findFragmentById(R.id.container_tempo_esgotado);
+
+        if (fragment != null) {
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(fragment)
+                    .commit();
+
+        }
+
+        findViewById(R.id.container_tempo_esgotado)
+                .setVisibility(View.GONE);
+
+        processarResposta(false, "Tempo esgotado");
+    }
+
+    private void processarResposta(boolean correta, String escolhida) {
+
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+
+        if (correta) {
+            acertos++;
+        }
+
+        Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
+
+        indiceAtual++;
+
+        if (indiceAtual < listaPerguntas.size()) {
+
+            mostrarPergunta();
+
+        } else {
+            try {
+                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
+                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
+                JSONObject resultado = new JSONObject();
+                resultado.put("jogador", nomeJogador);
+                resultado.put("acertos", acertos);
+                resultado.put("totalPerguntas", listaPerguntas.size());
+
+                // Escrever e salvar arquivo JSON para ter persistência de DADOS
+                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
+                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
+                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
+                // log.d("TRIVIA", "Resultado salvo com sucesso");
+                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
+            }catch (Exception e ){
+                Log.e("TRIVIA", "Erro ao criar JSON", e);
+            }
+
+
+            // Log.d("TRIVIA", resultado.toString(4))
+            // Aqui você coloca o bloco que já possui
+            // para criar e salvar o resultado JSON.
+
+        }
     }
 
 }

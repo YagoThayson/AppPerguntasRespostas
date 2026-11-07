@@ -48,6 +48,13 @@ public class TempoEsgotado extends Fragment {
         txtTempoEsgotado = view.findViewById(R.id.txt_tempo_esgotado);
         BotaoContinuar = view.findViewById(R.id.botao_continuar);
 
+        BotaoContinuar.setOnClickListener(v -> {
+
+            ((PerguntasActivity) requireActivity())
+                    .continuarAposTempoEsgotado();
+
+        });
+
     }
 }
 
