@@ -20,6 +20,7 @@ android:backgroundTint="@color/azul_escuro">
     android:textSize="40sp"/>
 
 <Button
+    android:id="@+id/botao_continuar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="32dp"
