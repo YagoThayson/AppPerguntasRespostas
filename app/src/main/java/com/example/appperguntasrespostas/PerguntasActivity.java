@@ -231,7 +231,9 @@ public class PerguntasActivity extends AppCompatActivity {
     }
 
     private void tempoEsgotado() {
-        // aqui: contar como erro e passar para a próxima pergunta
+        findViewById(R.id.container_tempo_esgotado).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_tempo_esgotado, new TempoEsgotado()).commit();
     }
 
 }
