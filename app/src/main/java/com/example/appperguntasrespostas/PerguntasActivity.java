@@ -1,5 +1,6 @@
 package com.example.appperguntasrespostas;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -14,7 +15,7 @@ import android.widget.Button;
 import org.json.JSONObject;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.util.Calendar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,33 +67,10 @@ public class PerguntasActivity extends AppCompatActivity {
                 findViewById(R.id.txtResposta4)
         };
 
-        findViewById(R.id.ajuda1).setOnClickListener(v -> {
-            if (ajudaUsada1) {
-                v.setEnabled(false);
-                Log.d("TRIVIA", "Ajuda já foi usada");
-                return;
-            }
-            ajudaUsada1 = true;
-            Log.d("TRIVIA", "Ajuda usada");
-        });
-        findViewById(R.id.ajuda2).setOnClickListener(v -> {
-            if (ajudaUsada2) {
-                v.setEnabled(false);
-                Log.d("TRIVIA", "Ajuda já foi usada");
-                return;
-            }
-            ajudaUsada2 = true;
-            Log.d("TRIVIA", "Ajuda usada");
-        });
-        findViewById(R.id.ajuda3).setOnClickListener(v -> {
-            if (ajudaUsada3) {
-                Log.d("TRIVIA", "Ajuda já foi usada");
-                v.setEnabled(false);
-                return;
-            }
-            ajudaUsada3 = true;
-            Log.d("TRIVIA", "Ajuda usada");
-        });
+        findViewById(R.id.ajuda1).setOnClickListener(v -> ajuda1Metade());
+        findViewById(R.id.ajuda2).setOnClickListener(v -> ajuda2RespostaCorreta());
+        findViewById(R.id.ajuda3).setOnClickListener(v -> ajuda3PularPergunta());
+
         barraEsquerda = findViewById(R.id.barraEsquerda);
         barraDireita = findViewById(R.id.barraDireita);
         txtTempo = findViewById(R.id.txtTempo);
@@ -142,12 +120,16 @@ public class PerguntasActivity extends AppCompatActivity {
                             mostrarPergunta();
                         } else {
                             try {
+                                Calendar x = Calendar.getInstance();
+                                String datahora = x.getTime().toString();
                                 // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
                                 // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
                                 JSONObject resultado = new JSONObject();
                                 resultado.put("jogador", nomeJogador);
                                 resultado.put("acertos", acertos);
                                 resultado.put("totalPerguntas", listaPerguntas.size());
+                                resultado.put("dificuldade", dificuldade);
+                                resultado.put("datetime", datahora);
 
                                 // Escrever e salvar arquivo JSON para ter persistência de DADOS
                                 FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
@@ -232,6 +214,26 @@ public class PerguntasActivity extends AppCompatActivity {
 
     private void tempoEsgotado() {
         // aqui: contar como erro e passar para a próxima pergunta
+    }
+
+    private void ajuda1Metade() {
+        ajudaUsada1 = true;
+
+    }
+    private void ajuda2RespostaCorreta() {
+        ajudaUsada2 = true;
+        String correta = perguntaAtual.getRespostaCorreta();
+
+        for (int i = 0; i < txtRespostas.length; i++) {
+            if (txtRespostas[i].getText().toString().equals(correta)) {
+                // TODO: DEPOIS destacar o card da posição i, que vai ser o card da posição correta.
+                Log.d("TRIVIA", "Ajuda 2: a correta está na posição " + i);
+            }
+        }
+    }
+    private void ajuda3PularPergunta() {
+        ajudaUsada3 = true;
+
     }
 
 }
