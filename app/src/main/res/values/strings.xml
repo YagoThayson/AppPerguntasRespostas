@@ -4,4 +4,6 @@
     <string name="ajuda_metade">tira metade das alternativas</string>
     <string name="ajuda_especialista">chama um especialista no assunto</string>
     <string name="ajuda_troca">Trocar pergunta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
