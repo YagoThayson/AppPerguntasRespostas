@@ -144,7 +144,7 @@ public class OpenTriviaClient {
         return new RespostaApi(code, perguntas);
     }
 
-    // Converte HTML entities (&quot;, &#039;, &amp;...) em texto normal
+    // Converte HTML entities (&quot;,) em texto normal
     private String decodificar(String texto) {
         return HtmlCompat.fromHtml(texto, HtmlCompat.FROM_HTML_MODE_LEGACY).toString();
     }
