@@ -230,7 +230,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
         for (int i = 0; i < txtRespostas.length; i++) {
             // Como esse textview não é uma String propriamente dita, só fucniona se eu pegar o texto e converter para String.
-            if(!txtRespostas[i].getText().toString().equals(perguntaAtual.getRespostaCorreta())){
+            if(!(txtRespostas[i].getText().toString().equals(perguntaAtual.getRespostaCorreta()))){
                 posicoesErradas.add(i);
             }
         }
