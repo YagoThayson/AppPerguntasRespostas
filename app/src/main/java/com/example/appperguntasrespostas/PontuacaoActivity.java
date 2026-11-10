@@ -30,7 +30,9 @@ public class PontuacaoActivity extends AppCompatActivity {
         // TextView txtNome = findViewById(R.id.txtNome);
         TextView Txtacertos = findViewById(R.id.acertos);
         TextView taxaAcertos = findViewById(R.id.taxa);
+        TextView pontuacao = findViewById(R.id.pontuacao);
 
+        pontuacao.setText("" + (acertos * 100));
         Txtacertos.setText("" + acertos); //Gambiarra
         taxaAcertos.setText(acertos + "/" + total);
 
@@ -46,7 +48,7 @@ public class PontuacaoActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        btnVoltarParaInicio.setOnClickListener(v -> {
+        btnjogarNovamente.setOnClickListener(v -> {
             Intent intent = new Intent(this, PerguntasActivity.class);
             intent.putExtra("nomeJogador", nomeJogador);
             startActivity(intent);
