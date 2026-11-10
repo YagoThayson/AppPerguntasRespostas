@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#242433"
+    android:soundEffectsEnabled="true"
+    android:id="@+id/constraintLayout">
+
+
+    <TextView
+        android:id="@+id/textParabens"
+        android:layout_width="279dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/bordas_redondas"
+        android:gravity="center|top"
+        android:text="@string/parab_ns_sua_pontua_o_foi"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/acertos"
+        android:layout_width="72dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/bordas_redondas"
+        android:gravity="center"
+        android:text="Acertos"
+        app:layout_constraintEnd_toStartOf="@+id/taxa"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textParabens" />
+
+    <TextView
+        android:id="@+id/taxa"
+        android:layout_width="73dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="96dp"
+        android:background="@drawable/bordas_redondas"
+        android:gravity="center"
+        android:text="Taxa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textParabens" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonJogarNovamente"
+        android:layout_width="209dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="244dp"
+        android:backgroundTint="#5253A3"
+        android:text="@string/jogar_novamente"
+        app:cornerRadius="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textParabens" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonVoltarParaInicio"
+        android:layout_width="177dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="59dp"
+        android:backgroundTint="#5253A3"
+        android:text="@string/voltar_para_inicio"
+        app:cornerRadius="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonJogarNovamente" />
+
+    <TextView
+        android:id="@+id/pontuacao"
+        android:layout_width="72dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="Pontuação"
+        app:layout_constraintEnd_toEndOf="@+id/textParabens"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/textParabens"
+        app:layout_constraintTop_toTopOf="@+id/textParabens" />
+
+    <TextView
+        android:id="@+id/textAcertos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/acertos"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/acertos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
+
+    <TextView
+        android:id="@+id/textTaxa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/taxa_de_acertos"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/taxa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
