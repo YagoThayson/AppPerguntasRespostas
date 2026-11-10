@@ -135,7 +135,8 @@ public class PerguntasActivity extends AppCompatActivity {
                         processarResposta(correta,escolhida);
                     });
                 }
-            }
+
+    }
 
     private void mostrarPergunta() {
         Pergunta p = listaPerguntas.get(indiceAtual);
@@ -253,8 +254,15 @@ public class PerguntasActivity extends AppCompatActivity {
                 FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
                 arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
                 arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
-                // log.d("TRIVIA", "Resultado salvo com sucesso");
+                Log.d("TRIVIA", "Resultado salvo com sucesso");
                 // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
+
+                Intent intent = new Intent(this, PontuacaoActivity.class);
+                intent.putExtra("nomeJogador", nomeJogador);
+                intent.putExtra("Acertos", acertos);
+                intent.putExtra("TotalPerguntas", listaPerguntas.size());
+                startActivity(intent);
+
             }catch (Exception e ){
                 Log.e("TRIVIA", "Erro ao criar JSON", e);
             }

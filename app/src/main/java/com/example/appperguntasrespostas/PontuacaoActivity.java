@@ -17,9 +17,9 @@ public class PontuacaoActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_pontuacao);
 
-        String nome = getIntent().getStringExtra("nome_jogador");
-        int acertos = getIntent().getIntExtra("acertos", 0);
-        int total = getIntent().getIntExtra("total", 0);
+        String nomeJogador = getIntent().getStringExtra("nomeJogador");
+        int acertos = getIntent().getIntExtra("Acertos", 10);
+        int total = getIntent().getIntExtra("TotalPerguntas", 10);
 
         // TextView txtNome = findViewById(R.id.txtNome);
         TextView Txtacertos = findViewById(R.id.acertos);
