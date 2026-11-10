@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edtNome = findViewById(R.id.NomeDeUsuario);
         Button btnIniciarPartida = findViewById(R.id.IniciarPartida);
+        Button btnHistorico = findViewById(R.id.Historico);
     // Estou fazendo a verificação quando aperta no botão, senti que criar uma classe jogador era desnecessari
         // então resolvi tornar jogador um atributo da partida, acho que fica mais simples
         btnIniciarPartida.setOnClickListener(v -> {
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, PerguntasActivity.class);
             intent.putExtra("nomeJogador", nome);
+            startActivity(intent);
+        });
+
+        btnHistorico.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HistoricoActivity.class);
             startActivity(intent);
         });
     }
