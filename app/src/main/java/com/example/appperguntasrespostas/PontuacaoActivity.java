@@ -1,5 +1,6 @@
 package com.example.appperguntasrespostas;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -7,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.widget.Button;
 import android.widget.TextView;
 
 public class PontuacaoActivity extends AppCompatActivity {
@@ -15,7 +18,9 @@ public class PontuacaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
         setContentView(R.layout.tela_pontuacao);
+        Button btnVoltarParaInicio = findViewById(R.id.buttonVoltarParaInicio);
 
         String nomeJogador = getIntent().getStringExtra("nomeJogador");
         int acertos = getIntent().getIntExtra("Acertos", 10);
@@ -33,6 +38,11 @@ public class PontuacaoActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        btnVoltarParaInicio.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         });
     }
 }
