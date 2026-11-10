@@ -162,7 +162,7 @@ public class PerguntasActivity extends AppCompatActivity {
                     }
 
                     Intent intent = new Intent(PerguntasActivity.this, PontuacaoActivity.class);
-                    intent.putExtra("nome_jogador", nomeJogador);
+                    // intent.putExtra("nome_jogador", nomeJogador);
                     intent.putExtra("acertos", acertos);
                     intent.putExtra("total", listaPerguntas.size());
                     startActivity(intent);
