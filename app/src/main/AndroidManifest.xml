@@ -33,7 +33,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".PontuaçaoActivity"
+            android:name=".PontuacaoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
