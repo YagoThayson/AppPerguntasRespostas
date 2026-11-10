@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -56,6 +57,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private boolean ajudaUsada2 = false;
     private boolean ajudaUsada3 = false;
     private static final int[] IDS_CARDS ={ R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
+    private ImageView xAjuda1, xAjuda2, xAjuda3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,8 +137,7 @@ public class PerguntasActivity extends AppCompatActivity {
                         processarResposta(correta,escolhida);
                     });
                 }
-
-    }
+            }
 
     private void mostrarPergunta() {
         Pergunta p = listaPerguntas.get(indiceAtual);
@@ -293,9 +294,13 @@ public class PerguntasActivity extends AppCompatActivity {
 
         for(int i = 0; i < 2; i++){
             findViewById(IDS_CARDS[posicoesErradas.get(i)]).setEnabled(false);
+            findViewById(IDS_CARDS[posicoesErradas.get(i)]).setVisibility(View.INVISIBLE);
+            //resolver o problema que a alternativa fica desabilitada e invisivel a partida inteira
             Log.d("TRIVIA", "Ajuda 1: Elimina a posição " + posicoesErradas.get(i));
             // TODO: DEPOIS substituir esse log pela logica do frontend
         }
+
+        findViewById(R.id.xAjuda1).setVisibility(View.VISIBLE);
 
     }
     private void ajuda2RespostaCorreta() {
@@ -310,6 +315,7 @@ public class PerguntasActivity extends AppCompatActivity {
                 // TODO: DEPOIS destacar o card da posição i, que vai ser o card da posição correta.
                 Log.d("TRIVIA", "Ajuda 2: a correta está na posição " + i);
             }
+            findViewById(R.id.xAjuda2).setVisibility(View.VISIBLE);
         }
     }
     private void ajuda3PularPergunta() {

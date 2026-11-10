@@ -118,10 +118,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         >
 
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1">
         <ImageButton
             android:id="@+id/ajuda1"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
             android:padding="0dp"
@@ -130,10 +134,25 @@
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="284dp" />
 
+        <ImageView
+            android:id="@+id/xAjuda1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:visibility="invisible"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/x_vermelho" />
+    </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            >
         <ImageButton
             android:id="@+id/ajuda2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginStart="16dp"
             android:scaleType="fitCenter"
@@ -143,10 +162,27 @@
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="284dp" />
 
+            <ImageView
+                android:id="@+id/xAjuda2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:visibility="invisible"
+                android:importantForAccessibility="no"
+                app:srcCompat="@drawable/x_vermelho" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            >
+
         <ImageButton
             android:id="@+id/ajuda3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginStart="16dp"
             android:scaleType="fitCenter"
@@ -155,6 +191,17 @@
             app:srcCompat="@drawable/troca"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="284dp" />
+
+            <ImageView
+                android:id="@+id/xAjuda3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:visibility="invisible"
+                android:importantForAccessibility="no"
+                app:srcCompat="@drawable/x_vermelho" />
+
+        </FrameLayout>
 
         <!-- imagens com resoluções provavelmente diferentes, me obrigaram a usar paddings diferentes -->
 
