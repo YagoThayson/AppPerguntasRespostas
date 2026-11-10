@@ -28,6 +28,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import com.example.appperguntasrespostas.model.Pergunta;
+import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 
 import java.util.List;
 import java.util.Scanner;
@@ -46,6 +47,8 @@ public class PerguntasActivity extends AppCompatActivity {
     private static final long TEMPO_TOTAL = 30000;
     private TextView txtTempo;
 
+    private String nomeJogador;
+    private ConfiguracaoPartida config;
     private boolean ajudaUsada1 = false;
     private boolean ajudaUsada2 = false;
     private boolean ajudaUsada3 = false;
@@ -53,7 +56,8 @@ public class PerguntasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String nomeJogador = getIntent().getStringExtra("nomeJogador");
+
+        nomeJogador = getIntent().getStringExtra("nomeJogador");
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
@@ -83,74 +87,18 @@ public class PerguntasActivity extends AppCompatActivity {
         quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
         int qtd_perguntas = 10; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
         String categoriaNome = "General Knowledge";
-        int categoriaid = 9;
+        int categoriaId = 9;
         String dificuldade = "easy";
         int tempoPorQuestao = 30;
+        config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
 
-        ConfiguracaoPartida config = new ConfiguracaoPartida(categoriaid, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
+        ConfiguracaoPartida config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
         new OpenTriviaClient().buscarPerguntas(config, new OpenTriviaClient.Callback() {
 
             @Override
             public void onSucesso(List<Pergunta> perguntas) {
-                if (perguntas.isEmpty()) {
-                    quadroDePerguntas.setText("Nenhuma pergunta encontrada.");
-                    return;
-                }
-
-                listaPerguntas = perguntas;
-                indiceAtual = 0;
-                mostrarPergunta();
-
-                int[] idsCards = { R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
-                for (int i = 0; i < idsCards.length; i++) {
-                    final int pos = i;
-                    findViewById(idsCards[pos]).setOnClickListener(v -> {
-                        if (respondida) {
-                            return;
-                        }
-                        respondida = true;
-
-                        String escolhida = txtRespostas[pos].getText().toString();
-                        boolean correta = isCorreta(escolhida);
-
-                        if (correta) {
-                            acertos++;
-                        }
-
-                        Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
-
-                        indiceAtual++;
-                        if (indiceAtual < listaPerguntas.size()) {
-                            mostrarPergunta();
-                        } else {
-                            try {
-                                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
-                                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
-                                JSONObject resultado = new JSONObject();
-                                resultado.put("jogador", nomeJogador);
-                                resultado.put("acertos", acertos);
-                                resultado.put("totalPerguntas", listaPerguntas.size());
-                                resultado.put("dificuldade", dificuldade);
-
-                                // Escrever e salvar arquivo JSON para ter persistência de DADOS
-                                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
-                                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
-                                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
-                                Log.d("TRIVIA", "Resultado salvo com sucesso");
-                                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
-                            }catch (Exception e ){
-                                Log.e("TRIVIA", "Erro ao criar JSON", e);
-                            }
-
-
-                            // Log.d("TRIVIA", resultado.toString(4));
-
-
-                        }
-                    });
-                }
+                iniciarPartida(perguntas);
             }
-
             @Override
             public void onErro(String mensagem) {
                 Log.e("TRIVIA", "Entrou no onErro!");
@@ -159,6 +107,65 @@ public class PerguntasActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void iniciarPartida(List<Pergunta> perguntas){
+        if (perguntas.isEmpty()) {
+            quadroDePerguntas.setText("Nenhuma pergunta encontrada.");
+            return;
+        }
+
+        listaPerguntas = perguntas;
+        indiceAtual = 0;
+        mostrarPergunta();
+
+        int[] idsCards = { R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
+        for (int i = 0; i < idsCards.length; i++) {
+            final int pos = i;
+            findViewById(idsCards[pos]).setOnClickListener(v -> {
+                if (respondida) {
+                    return;
+                }
+                respondida = true;
+
+                String escolhida = txtRespostas[pos].getText().toString();
+                boolean correta = isCorreta(escolhida);
+
+                if (correta) {
+                    acertos++;
+                }
+
+                Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
+
+                indiceAtual++;
+                if (indiceAtual < listaPerguntas.size()) {
+                    mostrarPergunta();
+                } else {
+                    try {
+                        // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
+                        // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
+                        JSONObject resultado = new JSONObject();
+                        resultado.put("jogador", nomeJogador);
+                        resultado.put("acertos", acertos);
+                        resultado.put("totalPerguntas", listaPerguntas.size());
+                        resultado.put("dificuldade", config.getDificuldade());
+
+                        // Escrever e salvar arquivo JSON para ter persistência de DADOS
+                        FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
+                        arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
+                        arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
+                        Log.d("TRIVIA", "Resultado salvo com sucesso");
+                        // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
+                    }catch (Exception e ){
+                        Log.e("TRIVIA", "Erro ao criar JSON", e);
+                    }
+
+
+                    // Log.d("TRIVIA", resultado.toString(4));
+
+
+                }
+            });
+        }
     }
 
     private void mostrarPergunta() {

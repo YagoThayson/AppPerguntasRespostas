@@ -2,7 +2,6 @@ package com.example.appperguntasrespostas.data.network;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import androidx.core.text.HtmlCompat;
 
