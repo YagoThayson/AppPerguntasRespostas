@@ -1,5 +1,6 @@
 package com.example.appperguntasrespostas;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -7,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.widget.Button;
 import android.widget.TextView;
 
 public class PontuacaoActivity extends AppCompatActivity {
@@ -15,16 +18,21 @@ public class PontuacaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.tela_pontuacao);
 
-        String nome = getIntent().getStringExtra("nome_jogador");
-        int acertos = getIntent().getIntExtra("acertos", 0);
-        int total = getIntent().getIntExtra("total", 0);
+        setContentView(R.layout.tela_pontuacao);
+        Button btnVoltarParaInicio = findViewById(R.id.buttonVoltarParaInicio);
+        Button btnjogarNovamente = findViewById(R.id.buttonJogarNovamente);
+
+        String nomeJogador = getIntent().getStringExtra("nomeJogador");
+        int acertos = getIntent().getIntExtra("Acertos", 10);
+        int total = getIntent().getIntExtra("TotalPerguntas", 10);
 
         // TextView txtNome = findViewById(R.id.txtNome);
         TextView Txtacertos = findViewById(R.id.acertos);
         TextView taxaAcertos = findViewById(R.id.taxa);
+        TextView pontuacao = findViewById(R.id.pontuacao);
 
+        pontuacao.setText("" + (acertos * 100));
         Txtacertos.setText("" + acertos); //Gambiarra
         taxaAcertos.setText(acertos + "/" + total);
 
@@ -33,6 +41,17 @@ public class PontuacaoActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        btnVoltarParaInicio.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        btnjogarNovamente.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PerguntasActivity.class);
+            intent.putExtra("nomeJogador", nomeJogador);
+            startActivity(intent);
         });
     }
 }
