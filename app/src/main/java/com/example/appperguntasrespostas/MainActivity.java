@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
     // Estou fazendo a verificação quando aperta no botão, senti que criar uma classe jogador era desnecessari
         // então resolvi tornar jogador um atributo da partida, acho que fica mais simples
         btnIniciarPartida.setOnClickListener(v -> {
-            String nome = edtNome.getText().toString().trim();
+            String nomeJogador = edtNome.getText().toString().trim();
 
-            if (nome.isEmpty()) {
+            if (nomeJogador.isEmpty()) {
                 // Depois pesquise algum jeito de mostrar o erro na tela
                 System.out.println("Nome está vazio");
                 return;
             }
 
             Intent intent = new Intent(this, PerguntasActivity.class);
-            intent.putExtra("nomeJogador", nome);
+            intent.putExtra("nomeJogador", nomeJogador);
             startActivity(intent);
         });
 

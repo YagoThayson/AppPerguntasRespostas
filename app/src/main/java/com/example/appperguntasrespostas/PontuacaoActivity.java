@@ -21,6 +21,7 @@ public class PontuacaoActivity extends AppCompatActivity {
 
         setContentView(R.layout.tela_pontuacao);
         Button btnVoltarParaInicio = findViewById(R.id.buttonVoltarParaInicio);
+        Button btnjogarNovamente = findViewById(R.id.buttonJogarNovamente);
 
         String nomeJogador = getIntent().getStringExtra("nomeJogador");
         int acertos = getIntent().getIntExtra("Acertos", 10);
@@ -42,6 +43,12 @@ public class PontuacaoActivity extends AppCompatActivity {
 
         btnVoltarParaInicio.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        btnVoltarParaInicio.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PerguntasActivity.class);
+            intent.putExtra("nomeJogador", nomeJogador);
             startActivity(intent);
         });
     }
