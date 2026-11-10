@@ -34,6 +34,7 @@ public class Pergunta {
         return enunciado;
     }
     public String getRespostaCorreta() {
+
         return respostaCorreta;
     }
     public List<String> getRespostasIncorretas() {

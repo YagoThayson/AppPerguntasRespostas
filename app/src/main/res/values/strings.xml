@@ -4,6 +4,11 @@
     <string name="ajuda_metade">tira metade das alternativas</string>
     <string name="ajuda_especialista">chama um especialista no assunto</string>
     <string name="ajuda_troca">Trocar pergunta</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="parab_ns_sua_pontua_o_foi">Parabéns! Sua pontuação foi:</string>
+    <string name="jogar_novamente">Jogar novamente</string>
+    <string name="voltar_para_inicio">Voltar para o início</string>
+    <string name="acertos">Acertos</string>
+    <string name="taxa_de_acertos">Taxa de acertos</string>
+    <string name="historico">Histórico</string>
+    <string name="voltar">Voltar</string>
 </resources>
