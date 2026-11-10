@@ -28,7 +28,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import com.example.appperguntasrespostas.model.Pergunta;
-import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
+// import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
+import android.content.Intent;
+import com.example.appperguntasrespostas.PontuacaoActivity; // acho q nem precisa pq tá no mesmo packpage. Pesquisa dps
 
 import java.util.List;
 import java.util.Scanner;
@@ -158,6 +160,13 @@ public class PerguntasActivity extends AppCompatActivity {
                     }catch (Exception e ){
                         Log.e("TRIVIA", "Erro ao criar JSON", e);
                     }
+
+                    Intent intent = new Intent(PerguntasActivity.this, PontuacaoActivity.class);
+                    // intent.putExtra("nome_jogador", nomeJogador);
+                    intent.putExtra("acertos", acertos);
+                    intent.putExtra("total", listaPerguntas.size());
+                    startActivity(intent);
+                    finish();
 
 
                     // Log.d("TRIVIA", resultado.toString(4));
