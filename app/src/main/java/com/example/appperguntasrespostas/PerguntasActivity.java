@@ -140,6 +140,12 @@ public class PerguntasActivity extends AppCompatActivity {
             }
 
     private void mostrarPergunta() {
+        for (int i = 0; i < IDS_CARDS.length; i++) {
+            View card = findViewById(IDS_CARDS[i]);
+            card.setEnabled(true);
+            card.setVisibility(View.VISIBLE);
+        }
+
         Pergunta p = listaPerguntas.get(indiceAtual);
         perguntaAtual = p;
         respondida = false;
