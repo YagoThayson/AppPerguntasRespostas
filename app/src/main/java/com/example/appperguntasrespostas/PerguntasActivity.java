@@ -399,11 +399,11 @@ public class PerguntasActivity extends AppCompatActivity {
         bundle.putString("texto",texto);
         fragment.setArguments(bundle);
 
-        findViewById(R.id.container_tempo_esgotado).setVisibility(View.VISIBLE);
+        findViewById(R.id.container_fragment_generico).setVisibility(View.VISIBLE);
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container_tempo_esgotado, fragment)
+                .replace(R.id.container_fragment_generico, fragment)
                 .commit();
         }
 

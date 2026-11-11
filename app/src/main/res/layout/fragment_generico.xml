@@ -28,7 +28,7 @@
         android:layout_marginBottom="40dp"
         android:layout_gravity="bottom"
         android:gravity="center"
-        android:text="TESTE"
+        android:text="OK"
         android:textSize="32sp"/>
 
 

@@ -2,6 +2,7 @@ package com.example.appperguntasrespostas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -10,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+
+import com.example.appperguntasrespostas.model.FragmentGenerico;
+import com.example.appperguntasrespostas.model.Pergunta;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (nomeJogador.isEmpty()) {
                 // Depois pesquise algum jeito de mostrar o erro na tela
-                System.out.println("Nome está vazio");
+                String texto = "Nome está vazio";
+
+                chamarFragment(texto);
                 return;
             }
 
@@ -47,5 +54,38 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, HistoricoActivity.class);
             startActivity(intent);
         });
+    }
+
+    public void chamarFragment(String texto){
+        FragmentGenerico fragment = FragmentGenerico.newInstance();
+
+
+        Bundle bundle = new Bundle();
+        bundle.putString("texto",texto);
+        fragment.setArguments(bundle);
+
+        findViewById(R.id.container_fragment_generico).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_fragment_generico, fragment)
+                .commit();
+    }
+
+    public void fecharfragment(){
+        Fragment fragment = getSupportFragmentManager()
+                .findFragmentById(R.id.container_fragment_generico);
+
+        if (fragment != null) {
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(fragment)
+                    .commit();
+
+        }
+
+        findViewById(R.id.container_fragment_generico)
+                .setVisibility(View.GONE);
     }
 }
