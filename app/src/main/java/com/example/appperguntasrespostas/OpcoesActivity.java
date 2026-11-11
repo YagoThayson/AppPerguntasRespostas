@@ -28,6 +28,7 @@ public class OpcoesActivity extends AppCompatActivity {
 
     private Spinner spinnerCategoria;
     private Spinner spinnerDificuldade;
+    private Spinner spinnerQtdPerguntas;
     private ArrayList<Integer> idsCategorias = new ArrayList<>();
 
     @Override
@@ -41,22 +42,11 @@ public class OpcoesActivity extends AppCompatActivity {
         Button btnJogar = findViewById(R.id.Jogar);
         spinnerCategoria = findViewById(R.id.spinner1);
         spinnerDificuldade = findViewById(R.id.spinner2);
+        spinnerQtdPerguntas = findViewById(R.id.spinner3);
 
-    /*    String[] dificuldades = {"easy", "medium", "hard" };
+        configurarDificuldade();
+        configurarQtdPerguntas();
 
-        ArrayAdapter<String> adapterDificuldade = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                dificuldades
-        );
-
-        adapterDificuldade.setDropDownViewResource(
-                android.R.layout.simple_spinner_item
-        );
-        spinnerDificuldade.setAdapter(adapterDificuldade);
-
-        Vou colocar dentro de um metodo
-     */
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -64,23 +54,27 @@ public class OpcoesActivity extends AppCompatActivity {
         });
 
         carregarCategorias();
+        configurarDificuldade();
+        configurarQtdPerguntas();
 
         btnJogar.setOnClickListener(v -> {
-            int qtdPerguntas = 10;
+            int qtdPerguntas = (Integer) spinnerQtdPerguntas.getSelectedItem();
+            System.out.println(spinnerQtdPerguntas.getSelectedItem());
 
             int posicao = spinnerCategoria.getSelectedItemPosition();
             String categoriaNome = spinnerCategoria.getSelectedItem().toString();
             int categoriaId = idsCategorias.get(posicao);
 
-            String dificuldade = "easy";
+            String dificuldade = spinnerDificuldade.getSelectedItem().toString();
             // int tempoPorQuestao = 30; // vai ser padrão né? se sim vou deixar só lá na perguntas activity msm
 
             Intent intent = new Intent(this, PerguntasActivity.class);
             intent.putExtra("nomeJogador", nomeJogador);
-            intent.putExtra("qtdPerguntas", qtdPerguntas);
-            intent.putExtra("categoriaNome", categoriaNome);
             intent.putExtra("categoriaId", categoriaId);
+            intent.putExtra("categoriaNome", categoriaNome);
             intent.putExtra("dificuldade", dificuldade);
+            intent.putExtra("qtdPerguntas", qtdPerguntas);
+
             startActivity(intent);
         });
     }
@@ -129,5 +123,35 @@ public class OpcoesActivity extends AppCompatActivity {
                 Log.e("OpcoesActivity", "Erro ao carregar categorias", e); // Depois ver possiveis tratamentos, talvez entrar no modo OFF
             }
         }).start();
+    }
+
+    private void configurarDificuldade(){
+        String[] dificuldades = {"easy", "medium", "hard" };
+
+        ArrayAdapter<String> adapterDificuldade = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                dificuldades
+        );
+
+        adapterDificuldade.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item
+        );
+        spinnerDificuldade.setAdapter(adapterDificuldade);
+    }
+    private void configurarQtdPerguntas(){
+        // Esse arrayAdapter trabalha com objetos e não com tipos primitivos.
+        Integer[] qtdPerguntas = {1, 10, 20, 30, 40, 50 }; // Adicionei o 1 só para o teste ser mais rápido TIRAR DEPOIS
+
+        ArrayAdapter<Integer> adapterQtdPerguntas = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                qtdPerguntas
+        );
+
+        adapterQtdPerguntas.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item
+        );
+        spinnerQtdPerguntas.setAdapter(adapterQtdPerguntas);
     }
 }

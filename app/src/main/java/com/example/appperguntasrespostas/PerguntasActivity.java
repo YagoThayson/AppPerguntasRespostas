@@ -378,7 +378,10 @@ public class PerguntasActivity extends AppCompatActivity {
 
             indiceAtual = 0; // só para começar pela primeira pergunta
             Collections.shuffle(listaPerguntas);
-            mostrarPergunta();
+
+            listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, 10));
+
+            iniciarPartida(listaPerguntas);
 
         } catch (Exception e) {
             Log.e("TRIVIA", "Erro ao carregar perguntas locais", e);
