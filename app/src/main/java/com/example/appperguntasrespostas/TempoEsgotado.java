@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TempoEsgotado#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class TempoEsgotado extends Fragment {
 
     private TextView txtTempoEsgotado;
@@ -41,6 +37,7 @@ public class TempoEsgotado extends Fragment {
         return inflater.inflate(R.layout.fragment_tempo_esgotado, container, false);
     }
 
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -48,13 +45,25 @@ public class TempoEsgotado extends Fragment {
         txtTempoEsgotado = view.findViewById(R.id.txt_tempo_esgotado);
         BotaoContinuar = view.findViewById(R.id.botao_continuar);
 
-        BotaoContinuar.setOnClickListener(v -> {
+//        Bundle bundle = getArguments();
+//
+//        String texto = "Tempo esgotado!";
+//
+//        if (bundle != null && bundle.containsKey("texto")) {
+//            texto = bundle.getString("texto");
+//        }
+//
+//        txtTempoEsgotado.setText(texto);
+//
+//        boolean executarLogica = bundle != null
+//                ? bundle.getBoolean("executarLogica", true)
+//                : true;
 
-            ((PerguntasActivity) requireActivity())
-                    .continuarAposTempoEsgotado();
+        BotaoContinuar.setOnClickListener(v -> {
+                ((PerguntasActivity) requireActivity())
+                        .continuarAposTempoEsgotado();
 
         });
-
     }
 }
 
