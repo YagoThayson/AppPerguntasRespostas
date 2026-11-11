@@ -378,7 +378,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
             indiceAtual = 0; // só para começar pela primeira pergunta
             Collections.shuffle(listaPerguntas);
-
+            // Metodo massa DEMAIS esse SUBLIST, "ANOTAR ELE PARA PROJETOS FUTUROS"
             listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, 10));
 
             iniciarPartida(listaPerguntas);
