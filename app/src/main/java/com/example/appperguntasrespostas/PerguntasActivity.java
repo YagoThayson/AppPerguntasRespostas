@@ -90,11 +90,14 @@ public class PerguntasActivity extends AppCompatActivity {
 
 
         quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
-        int qtd_perguntas = 10; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
-        String categoriaNome = "General Knowledge";
-        int categoriaId = 9;
-        String dificuldade = "easy";
+
+
+        int qtd_perguntas = getIntent().getIntExtra("qtdPerguntas", 10); // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
+        String categoriaNome = getIntent().getStringExtra("categoriaNome");
+        int categoriaId = getIntent().getIntExtra("categoriaId", 9);; // Por enquanto vou deixar padrão, mas me lembrem de fazer a lógica para ele pegar o id, comparando o nome da categoria escolhida
+        String dificuldade = getIntent().getStringExtra("dificuldade");
         int tempoPorQuestao = 30;
+
         config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
 
         ConfiguracaoPartida config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
