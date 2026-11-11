@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
+import com.example.appperguntasrespostas.model.FragmentGenerico;
 import com.example.appperguntasrespostas.model.Pergunta;
 // import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import android.content.Intent;
@@ -324,6 +325,8 @@ public class PerguntasActivity extends AppCompatActivity {
             if (txtRespostas[i].getText().toString().equals(correta)) {
                 // TODO: DEPOIS destacar o card da posição i, que vai ser o card da posição correta.
                 Log.d("TRIVIA", "Ajuda 2: a correta está na posição " + i);
+                String teste = "a opção correta está na posição "+ (int)(i+1);
+                chamarFragment(teste);
             }
             findViewById(R.id.xAjuda2).setVisibility(View.VISIBLE);
         }
@@ -387,4 +390,37 @@ public class PerguntasActivity extends AppCompatActivity {
             Log.e("TRIVIA", "Erro ao carregar perguntas locais", e);
         }
     }
-}
+
+    public void chamarFragment(String texto){
+        FragmentGenerico fragment = FragmentGenerico.newInstance();
+
+
+        Bundle bundle = new Bundle();
+        bundle.putString("texto",texto);
+        fragment.setArguments(bundle);
+
+        findViewById(R.id.container_tempo_esgotado).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_tempo_esgotado, fragment)
+                .commit();
+        }
+
+        public void fecharfragment(){
+            Fragment fragment = getSupportFragmentManager()
+                    .findFragmentById(R.id.container_fragment_generico);
+
+            if (fragment != null) {
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .remove(fragment)
+                        .commit();
+
+            }
+
+            findViewById(R.id.container_tempo_esgotado)
+                    .setVisibility(View.GONE);
+        }
+    }
