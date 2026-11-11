@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <Button
-        android:id="@+id/Historico"
+        android:id="@+id/Jogar"
         android:layout_width="155dp"
         android:layout_height="62dp"
         android:layout_marginBottom="56dp"
@@ -38,12 +38,12 @@
         android:layout_height="40dp"
         android:layout_marginBottom="70dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/Historico"
+        app:layout_constraintBottom_toTopOf="@+id/Jogar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/spinner4"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.cardview.widget.CardView>
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinner3"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.cardview.widget.CardView>
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/spinner2"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Spinner
-            android:id="@+id/spinner4"
+            android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
