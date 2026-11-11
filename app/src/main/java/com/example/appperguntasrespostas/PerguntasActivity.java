@@ -140,6 +140,7 @@ public class PerguntasActivity extends AppCompatActivity {
             }
 
     private void mostrarPergunta() {
+        // Depois adicionar um IF para não entrar sempre nesse laço, mesmo que não seja necessario
         for (int i = 0; i < IDS_CARDS.length; i++) {
             View card = findViewById(IDS_CARDS[i]);
             card.setEnabled(true);
