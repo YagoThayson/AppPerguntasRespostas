@@ -32,8 +32,9 @@ public class PontuacaoActivity extends AppCompatActivity {
         TextView taxaAcertos = findViewById(R.id.taxa);
         TextView pontuacao = findViewById(R.id.pontuacao);
 
+        //gambiarra ai para setText em String
         pontuacao.setText("" + (acertos * 100));
-        Txtacertos.setText("" + acertos); //Gambiarra
+        Txtacertos.setText("" + acertos);
         taxaAcertos.setText(acertos + "/" + total);
 
 
