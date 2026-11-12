@@ -44,6 +44,12 @@
             android:name=".OpcoesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <provider
+            android:name=".providers.HistoricoProvider"
+            android:authorities="com.example.appperguntasrespostas.provider"
+            android:enabled="true"
+            android:exported="false"></provider>
     </application>
 
 </manifest>

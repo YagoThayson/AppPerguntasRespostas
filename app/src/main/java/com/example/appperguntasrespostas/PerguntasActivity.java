@@ -259,6 +259,7 @@ public class PerguntasActivity extends AppCompatActivity {
                 // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
                 JSONObject resultado = new JSONObject();
                 resultado.put("jogador", nomeJogador);
+                resultado.put("dificuldade", config.getDificuldade());
                 resultado.put("acertos", acertos);
                 resultado.put("totalPerguntas", listaPerguntas.size());
 
@@ -271,6 +272,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(this, PontuacaoActivity.class);
                 intent.putExtra("nomeJogador", nomeJogador);
+                intent.putExtra("dificuldade", config.getDificuldade());
                 intent.putExtra("Acertos", acertos);
                 intent.putExtra("TotalPerguntas", listaPerguntas.size());
                 startActivity(intent);

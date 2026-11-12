@@ -44,8 +44,8 @@ public class OpcoesActivity extends AppCompatActivity {
         spinnerDificuldade = findViewById(R.id.spinner2);
         spinnerQtdPerguntas = findViewById(R.id.spinner3);
 
-        // configurarDificuldade();
-        // configurarQtdPerguntas();
+        configurarDificuldade();
+        configurarQtdPerguntas();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -59,7 +59,7 @@ public class OpcoesActivity extends AppCompatActivity {
 
         btnJogar.setOnClickListener(v -> {
             int qtdPerguntas = (Integer) spinnerQtdPerguntas.getSelectedItem();
-            System.out.println("Quantidade de perguntas: " + spinnerQtdPerguntas.getSelectedItem());
+            System.out.println(spinnerQtdPerguntas.getSelectedItem());
 
             int posicao = spinnerCategoria.getSelectedItemPosition();
             String categoriaNome = spinnerCategoria.getSelectedItem().toString();
