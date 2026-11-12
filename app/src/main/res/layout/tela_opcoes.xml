@@ -30,33 +30,17 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview1"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="70dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/Historico"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardview2" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview2"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="50dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardview1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="413dp">
 
         <Spinner
             android:id="@+id/spinner2"
@@ -97,5 +81,38 @@
             android:layout_height="match_parent" />
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/num_perguntas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="180dp"
+        android:text="Nº de Perguntas"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="210dp"
+        android:text="Dificuldade"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardview3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="220dp"
+        android:text="Categoria"
+        android:textColor="#FFFDFD"
+        app:layout_constraintBottom_toTopOf="@+id/cardview2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
