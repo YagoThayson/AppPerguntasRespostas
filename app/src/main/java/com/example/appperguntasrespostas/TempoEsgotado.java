@@ -45,20 +45,6 @@ public class TempoEsgotado extends Fragment {
         txtTempoEsgotado = view.findViewById(R.id.txt_tempo_esgotado);
         BotaoContinuar = view.findViewById(R.id.botao_continuar);
 
-//        Bundle bundle = getArguments();
-//
-//        String texto = "Tempo esgotado!";
-//
-//        if (bundle != null && bundle.containsKey("texto")) {
-//            texto = bundle.getString("texto");
-//        }
-//
-//        txtTempoEsgotado.setText(texto);
-//
-//        boolean executarLogica = bundle != null
-//                ? bundle.getBoolean("executarLogica", true)
-//                : true;
-
         BotaoContinuar.setOnClickListener(v -> {
                 ((PerguntasActivity) requireActivity())
                         .continuarAposTempoEsgotado();

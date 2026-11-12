@@ -3,6 +3,7 @@ package com.example.appperguntasrespostas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 // Imports para fazer os spinners de buscar as categorias.
 import android.widget.Spinner;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 import android.widget.ArrayAdapter;
 
 import android.util.Log;
+
+import com.example.appperguntasrespostas.model.FragmentGenerico;
 
 import java.net.URL;
 import java.net.HttpURLConnection;
@@ -120,6 +124,7 @@ public class OpcoesActivity extends AppCompatActivity {
                 });
 
             } catch (Exception e) {
+                runOnUiThread(() -> chamarFragment());
                 Log.e("OpcoesActivity", "Erro ao carregar categorias", e); // Depois ver possiveis tratamentos, talvez entrar no modo OFF
             }
         }).start();
@@ -153,5 +158,31 @@ public class OpcoesActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item
         );
         spinnerQtdPerguntas.setAdapter(adapterQtdPerguntas);
+    }
+    public void chamarFragment(){
+        FragmentOfline fragment = FragmentOfline.newInstance();
+
+        findViewById(R.id.container_offline).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_offline, fragment)
+                .commit();
+    }
+    public void fecharfragment(){
+        Fragment fragment = getSupportFragmentManager()
+                .findFragmentById(R.id.container_offline);
+
+        if (fragment != null) {
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(fragment)
+                    .commit();
+
+        }
+
+        findViewById(R.id.container_offline)
+                .setVisibility(View.GONE);
     }
 }
