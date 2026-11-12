@@ -53,6 +53,11 @@ public class FragmentGenerico extends Fragment {
 
         txtGenerico.setText(texto);
 
-        botaoGenerico.setOnClickListener(v ->((PerguntasActivity) requireActivity()).fecharfragment());
+        botaoGenerico.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(this)
+                    .commit();
+        });
     }
 }
