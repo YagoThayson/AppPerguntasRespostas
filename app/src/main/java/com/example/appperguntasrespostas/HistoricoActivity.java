@@ -29,7 +29,7 @@ public class HistoricoActivity extends AppCompatActivity {
         Uri uri = Uri.parse("content://com.example.appperguntasrespostas.provider/historico");
 
         // O getContent retorna o objeto, e o query consulta o contentProvider
-        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        // Cursor cursor = getContentResolver().query(uri, null, null, null, null);
         Button btnVoltar = findViewById(R.id.botao_voltar);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
@@ -84,9 +84,9 @@ public class HistoricoActivity extends AppCompatActivity {
         };
 
         // Para não mostrar os cards
-        for(int i = 0; i < cards.length; i++){
+         for(int i = 0; i < cards.length; i++){
             cards[i].setVisibility(View.INVISIBLE);
-        }
+         }
 
         if(cursor.moveToLast()){
             for(int i = 0; i < 5; i++){
