@@ -22,10 +22,18 @@ import org.json.JSONArray;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+
+// bibliotecas para a animação dos cardviews
+import android.animation.ValueAnimator;
+import android.animation.ArgbEvaluator;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import androidx.core.content.ContextCompat;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
@@ -46,6 +54,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private List<Pergunta> listaPerguntas;
     private int indiceAtual = 0;
     private TextView quadroDePerguntas;
+    private CardView[] cardsRespostas;
     private TextView[] txtRespostas;
     private View barraEsquerda, barraDireita;
     private CountDownTimer timer;
@@ -72,6 +81,13 @@ public class PerguntasActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        cardsRespostas = new CardView[] {
+                findViewById(R.id.Resposta1),
+                findViewById(R.id.Resposta2),
+                findViewById(R.id.Resposta3),
+                findViewById(R.id.Resposta4)
+        };
 
         quadroDePerguntas = findViewById(R.id.quadroDePerguntas);
         txtRespostas = new TextView[] {
@@ -422,5 +438,32 @@ public class PerguntasActivity extends AppCompatActivity {
 
             findViewById(R.id.container_tempo_esgotado)
                     .setVisibility(View.GONE);
+        }
+
+    private void piscarCard(CardView card, int corRes) {
+        int corOriginal = ContextCompat.getColor(this, R.color.azul_pastel);
+        int corDestino = ContextCompat.getColor(this, corRes);
+
+        ValueAnimator animador = ValueAnimator.ofObject(new ArgbEvaluator(), corOriginal, corDestino);
+        animador.setDuration(300);                       // duração de cada ida
+        animador.setRepeatCount(5);                      // 5 repetições = 6 trechos = 3 piscadas
+        animador.setRepeatMode(ValueAnimator.REVERSE);   // vai e volta
+        animador.addUpdateListener(a ->
+                card.setCardBackgroundColor((int) a.getAnimatedValue()));
+        animador.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                card.setCardBackgroundColor(corDestino); // termina fixo na cor do resultado
+            }
+        });
+        animador.start();
+        }
+
+    private int indiceCorreto() {
+        for (int i = 0; i < txtRespostas.length; i++) {
+            if (isCorreta(txtRespostas[i].getText().toString()))
+                return i;
+            }
+        return -1;
         }
     }

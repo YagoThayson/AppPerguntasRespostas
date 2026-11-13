@@ -44,9 +44,17 @@ public class FragmentOfline extends Fragment {
 
         botao_jogar_offline = view.findViewById(R.id.jogarOff);
 
+        botao_voltar = view.findViewById(R.id.voltartelaPrincipal);
+
         botao_voltar.setOnClickListener(v -> {
 
             Intent intent = new Intent(requireContext(), MainActivity.class);
+            startActivity(intent);
+        });
+
+        botao_jogar_offline.setOnClickListener(v -> {
+
+            Intent intent = new Intent(requireContext(), PerguntasActivity.class);
             startActivity(intent);
         });
 
