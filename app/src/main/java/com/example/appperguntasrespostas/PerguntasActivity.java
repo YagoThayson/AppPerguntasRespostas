@@ -270,36 +270,9 @@ public class PerguntasActivity extends AppCompatActivity {
             mostrarPergunta();
 
         } else {
-            try {
-                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
-                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
-                JSONObject resultado = new JSONObject();
-                resultado.put("jogador", nomeJogador);
-                resultado.put("acertos", acertos);
-                resultado.put("totalPerguntas", listaPerguntas.size());
-
-                // Escrever e salvar arquivo JSON para ter persistência de DADOS
-                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
-                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
-                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
-                Log.d("TRIVIA", "Resultado salvo com sucesso");
-                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
-
-                Intent intent = new Intent(this, PontuacaoActivity.class);
-                intent.putExtra("nomeJogador", nomeJogador);
-                intent.putExtra("Acertos", acertos);
-                intent.putExtra("TotalPerguntas", listaPerguntas.size());
-                startActivity(intent);
-
-            }catch (Exception e ){
-                Log.e("TRIVIA", "Erro ao criar JSON", e);
-            }
-
-
             // Log.d("TRIVIA", resultado.toString(4))
             // Aqui você coloca o bloco que já possui
-            // para criar e salvar o resultado JSON.
-
+            salvarJson();
         }
     }
 
@@ -438,6 +411,34 @@ public class PerguntasActivity extends AppCompatActivity {
 
             findViewById(R.id.container_tempo_esgotado)
                     .setVisibility(View.GONE);
+        }
+        private void salvarJson(){
+            try {
+                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
+                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
+                JSONObject resultado = new JSONObject();
+                resultado.put("jogador", nomeJogador);
+                resultado.put("dificuldade", config.getDificuldade());
+                resultado.put("acertos", acertos);
+                resultado.put("totalPerguntas", listaPerguntas.size());
+
+                // Escrever e salvar arquivo JSON para ter persistência de DADOS
+                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
+                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
+                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
+                Log.d("TRIVIA", "Resultado salvo com sucesso");
+                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
+
+                Intent intent = new Intent(this, PontuacaoActivity.class);
+                intent.putExtra("nomeJogador", nomeJogador);
+                intent.putExtra("dificuldade", config.getDificuldade());
+                intent.putExtra("Acertos", acertos);
+                intent.putExtra("TotalPerguntas", listaPerguntas.size());
+                startActivity(intent);
+
+            }catch (Exception e ){
+                Log.e("TRIVIA", "Erro ao criar JSON", e);
+            }
         }
 
     private void piscarCard(CardView card, int corRes) {

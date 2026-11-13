@@ -29,7 +29,8 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 public class OpcoesActivity extends AppCompatActivity {
-
+    private Button btnJogar;
+    private String nomeJogador;
     private Spinner spinnerCategoria;
     private Spinner spinnerDificuldade;
     private Spinner spinnerQtdPerguntas;
@@ -37,19 +38,19 @@ public class OpcoesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String nomeJogador = getIntent().getStringExtra("nomeJogador");
+        nomeJogador = getIntent().getStringExtra("nomeJogador");
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_opcoes);
 
-        Button btnJogar = findViewById(R.id.Jogar);
+        btnJogar = findViewById(R.id.Jogar);
         spinnerCategoria = findViewById(R.id.spinner1);
         spinnerDificuldade = findViewById(R.id.spinner2);
         spinnerQtdPerguntas = findViewById(R.id.spinner3);
 
-        // configurarDificuldade();
-        // configurarQtdPerguntas();
+        configurarDificuldade();
+        configurarQtdPerguntas();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -63,7 +64,7 @@ public class OpcoesActivity extends AppCompatActivity {
 
         btnJogar.setOnClickListener(v -> {
             int qtdPerguntas = (Integer) spinnerQtdPerguntas.getSelectedItem();
-            System.out.println("Quantidade de perguntas: " + spinnerQtdPerguntas.getSelectedItem());
+            System.out.println(spinnerQtdPerguntas.getSelectedItem());
 
             int posicao = spinnerCategoria.getSelectedItemPosition();
             String categoriaNome = spinnerCategoria.getSelectedItem().toString();
@@ -124,7 +125,11 @@ public class OpcoesActivity extends AppCompatActivity {
                 });
 
             } catch (Exception e) {
-                runOnUiThread(() -> chamarFragment());
+                runOnUiThread(() -> {
+                    btnJogar.setVisibility(View.INVISIBLE);
+                    btnJogar.setEnabled(false);
+                    chamarFragment();
+                });
                 Log.e("OpcoesActivity", "Erro ao carregar categorias", e); // Depois ver possiveis tratamentos, talvez entrar no modo OFF
             }
         }).start();
@@ -160,7 +165,7 @@ public class OpcoesActivity extends AppCompatActivity {
         spinnerQtdPerguntas.setAdapter(adapterQtdPerguntas);
     }
     public void chamarFragment(){
-        FragmentOfline fragment = FragmentOfline.newInstance();
+        FragmentOfline fragment = FragmentOfline.newInstance(nomeJogador);
 
         findViewById(R.id.container_offline).setVisibility(View.VISIBLE);
 

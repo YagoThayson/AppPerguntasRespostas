@@ -5,7 +5,8 @@
     android:layout_height="400dp"
     android:layout_gravity="center"
     android:background="@drawable/text_view_arredondado"
-    android:backgroundTint="@color/azul_escuro">
+    android:backgroundTint="@color/azul_escuro"
+    android:elevation="20dp">
 
     <TextView
         android:id="@+id/txt_off"
