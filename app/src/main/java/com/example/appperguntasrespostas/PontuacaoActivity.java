@@ -35,7 +35,7 @@ public class PontuacaoActivity extends AppCompatActivity {
         //gambiarra ai para setText em String
         pontuacao.setText("" + (acertos * 100));
         Txtacertos.setText("" + acertos);
-        taxaAcertos.setText(acertos + "/" + total);
+        taxaAcertos.setText(acertos + "/" + (total));
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
@@ -56,3 +56,5 @@ public class PontuacaoActivity extends AppCompatActivity {
         });
     }
 }
+
+

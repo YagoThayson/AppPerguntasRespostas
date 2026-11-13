@@ -54,9 +54,7 @@ public class HistoricoProvider extends ContentProvider {
         MatrixCursor cursor = new MatrixCursor(colunas);
 
         try {
-            Scanner leitor = new Scanner(
-                    getContext().openFileInput("resultados.json")
-            );
+            Scanner leitor = new Scanner(getContext().openFileInput("resultados.json"));
             // Transformando o JSON em um objeto pq tava dando NULL POINTER
             while (leitor.hasNextLine()) {
 

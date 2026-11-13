@@ -151,7 +151,7 @@ public class OpcoesActivity extends AppCompatActivity {
     }
     private void configurarQtdPerguntas(){
         // Esse arrayAdapter trabalha com objetos e não com tipos primitivos.
-        Integer[] qtdPerguntas = {1, 10, 20, 30, 40, 50 }; // Adicionei o 1 só para o teste ser mais rápido TIRAR DEPOIS
+        Integer[] qtdPerguntas = {1,5, 10, 15, 20,25, 30, 35, 40, }; // Adicionei o 1 só para o teste ser mais rápido TIRAR DEPOIS
 
         ArrayAdapter<Integer> adapterQtdPerguntas = new ArrayAdapter<>(
                 this,
