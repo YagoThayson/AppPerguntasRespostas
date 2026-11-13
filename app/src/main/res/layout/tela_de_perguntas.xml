@@ -142,7 +142,7 @@
             android:scaleType="fitCenter"
             android:padding="0dp"
             android:contentDescription="@string/ajuda_metade"
-            app:srcCompat="@drawable/metade"
+            app:srcCompat="@drawable/menosdois"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="284dp" />
 
@@ -167,8 +167,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginStart="16dp"
-            android:scaleType="fitCenter"
-            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:padding="0dp"
             android:contentDescription="@string/ajuda_especialista"
             app:srcCompat="@drawable/especialista"
             tools:layout_editor_absoluteX="59dp"
@@ -197,10 +197,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginStart="16dp"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:padding="0dp"
             android:contentDescription="@string/ajuda_troca"
-            app:srcCompat="@drawable/troca"
+            app:srcCompat="@drawable/bolamagica"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="284dp" />
 
