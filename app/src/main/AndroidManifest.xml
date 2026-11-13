@@ -10,8 +10,8 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/PANDORA"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppPerguntasRespostas">
         <activity
@@ -40,6 +40,16 @@
             android:name=".HistoricoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".OpcoesActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <provider
+            android:name=".providers.HistoricoProvider"
+            android:authorities="com.example.appperguntasrespostas.provider"
+            android:enabled="true"
+            android:exported="false"></provider>
     </application>
 
 </manifest>

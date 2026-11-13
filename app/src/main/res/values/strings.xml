@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppPerguntasRespostas</string>
+    <string name="PANDORA">AppPerguntasRespostas</string>
     <!-- strings de acessibilidade para os botoes de ajuda -->
     <string name="ajuda_metade">tira metade das alternativas</string>
     <string name="ajuda_especialista">chama um especialista no assunto</string>
@@ -11,4 +11,6 @@
     <string name="taxa_de_acertos">Taxa de acertos</string>
     <string name="historico">Histórico</string>
     <string name="voltar">Voltar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

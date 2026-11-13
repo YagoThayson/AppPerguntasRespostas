@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/text_view_arredondado"
+    android:backgroundTint="@color/azul_escuro"
+    android:elevation="20dp">
+
+    <TextView
+        android:id="@+id/txt_off"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="OFFLINE EIN FERA!"
+        android:textColor="@color/white"
+        android:textSize="40sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/voltartelaPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Voltar"
+            android:textSize="32sp" />
+
+        <Button
+            android:id="@+id/jogarOff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Jogar Offline"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

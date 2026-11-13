@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
+import com.example.appperguntasrespostas.model.FragmentGenerico;
 import com.example.appperguntasrespostas.model.Pergunta;
 // import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import android.content.Intent;
@@ -90,11 +91,14 @@ public class PerguntasActivity extends AppCompatActivity {
 
 
         quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
-        int qtd_perguntas = 10; // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
-        String categoriaNome = "General Knowledge";
-        int categoriaId = 9;
-        String dificuldade = "easy";
+
+
+        int qtd_perguntas = getIntent().getIntExtra("qtdPerguntas", 10); // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
+        String categoriaNome = getIntent().getStringExtra("categoriaNome");
+        int categoriaId = getIntent().getIntExtra("categoriaId", 9);; // Por enquanto vou deixar padrão, mas me lembrem de fazer a lógica para ele pegar o id, comparando o nome da categoria escolhida
+        String dificuldade = getIntent().getStringExtra("dificuldade");
         int tempoPorQuestao = 30;
+
         config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
 
         ConfiguracaoPartida config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
@@ -140,6 +144,7 @@ public class PerguntasActivity extends AppCompatActivity {
             }
 
     private void mostrarPergunta() {
+        // Depois adicionar um IF para não entrar sempre nesse laço, mesmo que não seja necessario
         for (int i = 0; i < IDS_CARDS.length; i++) {
             View card = findViewById(IDS_CARDS[i]);
             card.setEnabled(true);
@@ -249,36 +254,9 @@ public class PerguntasActivity extends AppCompatActivity {
             mostrarPergunta();
 
         } else {
-            try {
-                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
-                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
-                JSONObject resultado = new JSONObject();
-                resultado.put("jogador", nomeJogador);
-                resultado.put("acertos", acertos);
-                resultado.put("totalPerguntas", listaPerguntas.size());
-
-                // Escrever e salvar arquivo JSON para ter persistência de DADOS
-                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
-                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
-                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
-                Log.d("TRIVIA", "Resultado salvo com sucesso");
-                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
-
-                Intent intent = new Intent(this, PontuacaoActivity.class);
-                intent.putExtra("nomeJogador", nomeJogador);
-                intent.putExtra("Acertos", acertos);
-                intent.putExtra("TotalPerguntas", listaPerguntas.size());
-                startActivity(intent);
-
-            }catch (Exception e ){
-                Log.e("TRIVIA", "Erro ao criar JSON", e);
-            }
-
-
             // Log.d("TRIVIA", resultado.toString(4))
             // Aqui você coloca o bloco que já possui
-            // para criar e salvar o resultado JSON.
-
+            salvarJson();
         }
     }
 
@@ -320,6 +298,8 @@ public class PerguntasActivity extends AppCompatActivity {
             if (txtRespostas[i].getText().toString().equals(correta)) {
                 // TODO: DEPOIS destacar o card da posição i, que vai ser o card da posição correta.
                 Log.d("TRIVIA", "Ajuda 2: a correta está na posição " + i);
+                String teste = "a opção correta está na posição "+ (int)(i+1);
+                chamarFragment(teste);
             }
             findViewById(R.id.xAjuda2).setVisibility(View.VISIBLE);
         }
@@ -374,10 +354,74 @@ public class PerguntasActivity extends AppCompatActivity {
 
             indiceAtual = 0; // só para começar pela primeira pergunta
             Collections.shuffle(listaPerguntas);
-            mostrarPergunta();
+            // Metodo massa DEMAIS esse SUBLIST, "ANOTAR ELE PARA PROJETOS FUTUROS"
+            listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, 10));
+
+            iniciarPartida(listaPerguntas);
 
         } catch (Exception e) {
             Log.e("TRIVIA", "Erro ao carregar perguntas locais", e);
         }
     }
-}
+
+    public void chamarFragment(String texto){
+        FragmentGenerico fragment = FragmentGenerico.newInstance();
+
+
+        Bundle bundle = new Bundle();
+        bundle.putString("texto",texto);
+        fragment.setArguments(bundle);
+
+        findViewById(R.id.container_fragment_generico).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_fragment_generico, fragment)
+                .commit();
+        }
+
+        public void fecharfragment(){
+            Fragment fragment = getSupportFragmentManager()
+                    .findFragmentById(R.id.container_fragment_generico);
+
+            if (fragment != null) {
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .remove(fragment)
+                        .commit();
+
+            }
+
+            findViewById(R.id.container_tempo_esgotado)
+                    .setVisibility(View.GONE);
+        }
+        private void salvarJson(){
+            try {
+                // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
+                // Log.d("TRIVIA", "Fim da partida: o jogador: " +  nomeJogador + " fez " + acertos + "/" + listaPerguntas.size());
+                JSONObject resultado = new JSONObject();
+                resultado.put("jogador", nomeJogador);
+                resultado.put("dificuldade", config.getDificuldade());
+                resultado.put("acertos", acertos);
+                resultado.put("totalPerguntas", listaPerguntas.size());
+
+                // Escrever e salvar arquivo JSON para ter persistência de DADOS
+                FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
+                arquivo.write((resultado.toString() + "\n").getBytes()); // Esse getBytes converto uma string em um vetor de bytes, e depois escreve esses bytes no arquivo JSON, se fosse TXT era mais fácil escrever
+                arquivo.close();// Mas seria mais dificil de ler, então deixa assim msm.
+                Log.d("TRIVIA", "Resultado salvo com sucesso");
+                // Para acessar esse arquivo o caminho no android studio é: VIEW -> Tool Windows -> Device Explorer - data -> data -> com.example.appperguntasrespostas -> files e Vai estar lá
+
+                Intent intent = new Intent(this, PontuacaoActivity.class);
+                intent.putExtra("nomeJogador", nomeJogador);
+                intent.putExtra("dificuldade", config.getDificuldade());
+                intent.putExtra("Acertos", acertos);
+                intent.putExtra("TotalPerguntas", listaPerguntas.size());
+                startActivity(intent);
+
+            }catch (Exception e ){
+                Log.e("TRIVIA", "Erro ao criar JSON", e);
+            }
+        }
+    }
