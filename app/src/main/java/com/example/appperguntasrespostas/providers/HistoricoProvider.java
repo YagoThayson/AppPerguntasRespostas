@@ -43,7 +43,7 @@ public class HistoricoProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         // TODO: Implement this to initialize your content provider on startup.
-        return false;
+        return true;
     }
 
     @Override
@@ -54,18 +54,19 @@ public class HistoricoProvider extends ContentProvider {
         MatrixCursor cursor = new MatrixCursor(colunas);
 
         try {
-            Scanner leitor = new Scanner(
-                    getContext().openFileInput("resultados.json")
-            );
+            Scanner leitor = new Scanner(getContext().openFileInput("resultados.json"));
             // Transformando o JSON em um objeto pq tava dando NULL POINTER
             while (leitor.hasNextLine()) {
+
+                Log.d("HISTORICO", "Quantidade de registros: " + cursor.getCount());
                 JSONObject resultado = new JSONObject(leitor.nextLine());
 
                 cursor.addRow(new Object[]{
                         resultado.getString("jogador"),
                         resultado.getInt("acertos"),
                         resultado.getInt("totalPerguntas"),
-                        resultado.getString("dificuldade"),
+                        // OptString tem essa opção de colocar um valor padrão(FALLBACK), TAVA DANDO org.json.JSONException: No value for dificuldade
+                        resultado.optString("dificuldade", "Offline"),
                 });
             }
 
@@ -79,8 +80,7 @@ public class HistoricoProvider extends ContentProvider {
     }
 
     @Override
-    public int update(Uri uri, ContentValues values, String selection,
-                      String[] selectionArgs) {
+    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         // TODO: Implement this to handle requests to update one or more rows.
         throw new UnsupportedOperationException("Not yet implemented");
     }

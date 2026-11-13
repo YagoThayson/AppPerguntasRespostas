@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import android.os.CountDownTimer;
-import android.os.Looper;
 import android.util.Log;
 import android.os.Bundle;
 import android.view.View;
@@ -63,6 +62,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private CountDownTimer timer;
     private static final long TEMPO_TOTAL = 30000;
     private TextView txtTempo;
+
     private String nomeJogador;
     private ConfiguracaoPartida config;
     private boolean ajudaUsada1 = false;
@@ -71,6 +71,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private static final int[] IDS_CARDS ={ R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
     private ImageView xAjuda1, xAjuda2, xAjuda3;
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private int quantidadePerguntas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,15 +113,14 @@ public class PerguntasActivity extends AppCompatActivity {
         quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
 
 
-        int qtd_perguntas = getIntent().getIntExtra("qtdPerguntas", 10); // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
+        quantidadePerguntas = getIntent().getIntExtra("qtdPerguntas", 10); // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
         String categoriaNome = getIntent().getStringExtra("categoriaNome");
         int categoriaId = getIntent().getIntExtra("categoriaId", 9);; // Por enquanto vou deixar padrão, mas me lembrem de fazer a lógica para ele pegar o id, comparando o nome da categoria escolhida
         String dificuldade = getIntent().getStringExtra("dificuldade");
         int tempoPorQuestao = 30;
 
-        config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
+        config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, quantidadePerguntas + 1, tempoPorQuestao);
 
-        ConfiguracaoPartida config = new ConfiguracaoPartida(categoriaId, categoriaNome, dificuldade, qtd_perguntas, tempoPorQuestao);
         new OpenTriviaClient().buscarPerguntas(config, new OpenTriviaClient.Callback() {
 
             @Override
@@ -171,6 +171,16 @@ public class PerguntasActivity extends AppCompatActivity {
 
     private void mostrarPergunta() {
         // Depois adicionar um IF para não entrar sempre nesse laço, mesmo que não seja necessario
+        int limite = quantidadePerguntas;
+
+        if(ajudaUsada3){
+            limite++;
+        }
+
+        //if(indiceAtual >= limite){
+        //    salvarJson();
+        //}
+
         for (int i = 0; i < IDS_CARDS.length; i++) {
             View card = findViewById(IDS_CARDS[i]);
             card.setEnabled(true);
@@ -335,6 +345,14 @@ public class PerguntasActivity extends AppCompatActivity {
         }
         ajudaUsada3 = true;
 
+        if(timer != null){
+            timer.cancel();
+            timer=null;
+        }
+        findViewById(R.id.xAjuda3).setVisibility(View.VISIBLE);
+        indiceAtual++;
+        quantidadePerguntas--;
+        mostrarPergunta();
     }
 
     private void carregarPerguntasLocais() {
@@ -380,7 +398,7 @@ public class PerguntasActivity extends AppCompatActivity {
             indiceAtual = 0; // só para começar pela primeira pergunta
             Collections.shuffle(listaPerguntas);
             // Metodo massa DEMAIS esse SUBLIST, "ANOTAR ELE PARA PROJETOS FUTUROS"
-            listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, 10));
+            listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, 11));
 
             iniciarPartida(listaPerguntas);
 
@@ -429,7 +447,7 @@ public class PerguntasActivity extends AppCompatActivity {
                 resultado.put("jogador", nomeJogador);
                 resultado.put("dificuldade", config.getDificuldade());
                 resultado.put("acertos", acertos);
-                resultado.put("totalPerguntas", listaPerguntas.size());
+                resultado.put("totalPerguntas", listaPerguntas.size()-1);
 
                 // Escrever e salvar arquivo JSON para ter persistência de DADOS
                 FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
@@ -442,12 +460,17 @@ public class PerguntasActivity extends AppCompatActivity {
                 intent.putExtra("nomeJogador", nomeJogador);
                 intent.putExtra("dificuldade", config.getDificuldade());
                 intent.putExtra("Acertos", acertos);
-                intent.putExtra("TotalPerguntas", listaPerguntas.size());
+                intent.putExtra("TotalPerguntas", listaPerguntas.size()-1);
                 startActivity(intent);
 
             }catch (Exception e ){
                 Log.e("TRIVIA", "Erro ao criar JSON", e);
             }
+            // Se ele der que não dá para acessar ROOT, só no terminal
+            // adb shell
+            // cd files
+            // cat resultados.json
+            // SHOW!!
         }
 
     private void piscarCard(CardView card, int corRes) {
