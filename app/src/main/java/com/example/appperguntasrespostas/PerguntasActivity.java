@@ -34,6 +34,8 @@ import android.animation.ArgbEvaluator;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import androidx.core.content.ContextCompat;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
@@ -68,6 +70,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private boolean ajudaUsada3 = false;
     private static final int[] IDS_CARDS ={ R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
     private ImageView xAjuda1, xAjuda2, xAjuda3;
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private int quantidadePerguntas;
 
     @Override
@@ -134,6 +137,13 @@ public class PerguntasActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (timer != null) timer.cancel();
+        handler.removeCallbacksAndMessages(null);
+    }
     private void iniciarPartida(List<Pergunta> perguntas){
         if (perguntas.isEmpty()) {
             quadroDePerguntas.setText("Nenhuma pergunta encontrada.");
@@ -155,7 +165,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
                         String escolhida = txtRespostas[pos].getText().toString();
                         boolean correta = isCorreta(escolhida);
-                        processarResposta(correta,escolhida);
+                        processarResposta(correta,escolhida, pos);
                     });
                 }
             }
@@ -167,6 +177,9 @@ public class PerguntasActivity extends AppCompatActivity {
             View card = findViewById(IDS_CARDS[i]);
             card.setEnabled(true);
             card.setVisibility(View.VISIBLE);
+        }
+        for (CardView c : cardsRespostas) {
+            c.setCardBackgroundColor(ContextCompat.getColor(this, R.color.azul_pastel));
         }
 
         Pergunta p = listaPerguntas.get(indiceAtual);
@@ -249,10 +262,11 @@ public class PerguntasActivity extends AppCompatActivity {
         findViewById(R.id.container_tempo_esgotado)
                 .setVisibility(View.GONE);
 
-        processarResposta(false, "Tempo esgotado");
+        respondida = true;
+        processarResposta(false, "Tempo esgotado",-1 );
     }
 
-    private void processarResposta(boolean correta, String escolhida) {
+    private void processarResposta(boolean correta, String escolhida, int pos) {
 
         if (timer != null) {
             timer.cancel();
@@ -261,21 +275,18 @@ public class PerguntasActivity extends AppCompatActivity {
 
         if (correta) {
             acertos++;
+            piscarCard(cardsRespostas[pos], R.color.verde_confirmacao);
+        } else {
+            if (pos >= 0){
+            piscarCard(cardsRespostas[pos], R.color.vermelho_vivo);
+            }
+            piscarCard(cardsRespostas[indiceCorreto()], R.color.verde_confirmacao);
         }
 
         Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
 
-        indiceAtual++;
-
-        if (indiceAtual < listaPerguntas.size()) {
-
-            mostrarPergunta();
-
-        } else {
-            // Log.d("TRIVIA", resultado.toString(4))
-            // Aqui você coloca o bloco que já possui
-            salvarJson();
-        }
+        handler.postDelayed(this::proximaPergunta, 2000);
+//        proximaPergunta();
     }
 
     private void ajuda1Metade() {
@@ -458,6 +469,7 @@ public class PerguntasActivity extends AppCompatActivity {
         }
 
     private void piscarCard(CardView card, int corRes) {
+        Log.d("TRIVIA", "piscarCard chamado");
         int corOriginal = ContextCompat.getColor(this, R.color.azul_pastel);
         int corDestino = ContextCompat.getColor(this, corRes);
 
@@ -483,4 +495,32 @@ public class PerguntasActivity extends AppCompatActivity {
             }
         return -1;
         }
+//    private void configurarCliquesRespostas() {
+//        for (int i = 0; i < cardsRespostas.length; i++) {
+//            final int pos = i;
+//            cardsRespostas[i].setOnClickListener(v -> {
+//                if (respondida || listaPerguntas == null) return;
+//                respondida = true;
+//
+//                if (timer != null) timer.cancel();
+//
+//                boolean correta = isCorreta(txtRespostas[pos].getText().toString());
+//                String escolhida = txtRespostas[pos].getText().toString();
+//                processarResposta(correta, escolhida ,pos);
+//            });
+//        }
+//    }   // <- esta chave fecha o método
+    private void proximaPergunta() {
+        indiceAtual++;
+
+        if (indiceAtual < listaPerguntas.size()) {
+
+            mostrarPergunta();
+
+        } else {
+            // Log.d("TRIVIA", resultado.toString(4))
+            // Aqui você coloca o bloco que já possui
+            salvarJson();
+        }
     }
+}
