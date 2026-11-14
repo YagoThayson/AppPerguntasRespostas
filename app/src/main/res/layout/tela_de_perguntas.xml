@@ -23,9 +23,9 @@
             android:id="@+id/Resposta1"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:backgroundTint="@color/azul_pastel"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/azul_pastel"
             app:cardCornerRadius="24dp">
 
             <TextView
@@ -47,9 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
-            android:backgroundTint="@color/azul_pastel"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/azul_pastel"
             app:cardCornerRadius="24dp">
 
             <TextView
@@ -71,9 +71,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
-            android:backgroundTint="@color/azul_pastel"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/azul_pastel"
             app:cardCornerRadius="24dp">
 
             <TextView
@@ -95,9 +95,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
-            android:backgroundTint="@color/azul_pastel"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/azul_pastel"
             app:cardCornerRadius="24dp">
 
             <TextView

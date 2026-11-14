@@ -270,6 +270,7 @@ public class PerguntasActivity extends AppCompatActivity {
         findViewById(R.id.container_tempo_esgotado)
                 .setVisibility(View.GONE);
 
+        respondida = true;
         processarResposta(false, "Tempo esgotado",-1 );
     }
 
@@ -282,17 +283,18 @@ public class PerguntasActivity extends AppCompatActivity {
 
         if (correta) {
             acertos++;
-            piscarCard(cardsRespostas[pos], R.color.verde_confirmaçao);
+            piscarCard(cardsRespostas[pos], R.color.verde_confirmacao);
         } else {
-            if (pos > 0){
+            if (pos >= 0){
             piscarCard(cardsRespostas[pos], R.color.vermelho_vivo);
             }
-            piscarCard(cardsRespostas[indiceCorreto()], R.color.verde_confirmaçao);
+            piscarCard(cardsRespostas[indiceCorreto()], R.color.verde_confirmacao);
         }
 
         Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
 
-        proximaPergunta();
+        handler.postDelayed(this::proximaPergunta, 2000);
+//        proximaPergunta();
     }
 
     private void ajuda1Metade() {
@@ -474,6 +476,7 @@ public class PerguntasActivity extends AppCompatActivity {
         }
 
     private void piscarCard(CardView card, int corRes) {
+        Log.d("TRIVIA", "piscarCard chamado");
         int corOriginal = ContextCompat.getColor(this, R.color.azul_pastel);
         int corDestino = ContextCompat.getColor(this, corRes);
 
@@ -499,21 +502,21 @@ public class PerguntasActivity extends AppCompatActivity {
             }
         return -1;
         }
-    private void configurarCliquesRespostas() {
-        for (int i = 0; i < cardsRespostas.length; i++) {
-            final int pos = i;
-            cardsRespostas[i].setOnClickListener(v -> {
-                if (respondida || listaPerguntas == null) return;
-                respondida = true;
-
-                if (timer != null) timer.cancel();
-
-                boolean correta = isCorreta(txtRespostas[pos].getText().toString());
-                String escolhida = txtRespostas[pos].getText().toString();
-                processarResposta(correta, escolhida ,pos);
-            });
-        }
-    }   // <- esta chave fecha o método
+//    private void configurarCliquesRespostas() {
+//        for (int i = 0; i < cardsRespostas.length; i++) {
+//            final int pos = i;
+//            cardsRespostas[i].setOnClickListener(v -> {
+//                if (respondida || listaPerguntas == null) return;
+//                respondida = true;
+//
+//                if (timer != null) timer.cancel();
+//
+//                boolean correta = isCorreta(txtRespostas[pos].getText().toString());
+//                String escolhida = txtRespostas[pos].getText().toString();
+//                processarResposta(correta, escolhida ,pos);
+//            });
+//        }
+//    }   // <- esta chave fecha o método
     private void proximaPergunta() {
         indiceAtual++;
 
