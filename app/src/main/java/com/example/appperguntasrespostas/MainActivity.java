@@ -12,14 +12,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity {
+    private ConexaoReceiver conexaoReceiver;
+    private IntentFilter filtroConexao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_inicial);
+
+        conexaoReceiver = new ConexaoReceiver();
+
+        filtroConexao = new IntentFilter(
+                ConnectivityManager.CONNECTIVITY_ACTION
+        );
+        // Toast de conexão
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(conexaoReceiver, filtroConexao, Context.RECEIVER_NOT_EXPORTED);
+        } else {
+            registerReceiver(conexaoReceiver, filtroConexao);
+        }
+        // Iniciar a música de fundo
+        Intent musica = new Intent(this, MusicaService.class);
+        startService(musica);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -49,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, HistoricoActivity.class);
             startActivity(intent);
         });
+    }
+    // Só para acabar com o BROADCASTRECEIVER quando a activity é destruida
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (conexaoReceiver != null) {
+            unregisterReceiver(conexaoReceiver);
+            conexaoReceiver = null;
+        }
     }
 
     public void chamarFragment(String texto){

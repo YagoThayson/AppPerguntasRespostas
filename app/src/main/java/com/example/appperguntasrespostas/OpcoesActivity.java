@@ -28,6 +28,7 @@ import org.json.JSONArray;
 
 public class OpcoesActivity extends AppCompatActivity {
     private Button btnJogar;
+    private Button btnVoltar;
     private String nomeJogador;
     private Spinner spinnerCategoria;
     private Spinner spinnerDificuldade;
@@ -44,6 +45,7 @@ public class OpcoesActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.container_splash, new FragmentSplash()).commitNow();
 
         btnJogar = findViewById(R.id.Jogar);
+        btnVoltar = findViewById(R.id.botaoVoltarOpcoes);
         spinnerCategoria = findViewById(R.id.spinner1);
         spinnerDificuldade = findViewById(R.id.spinner2);
         spinnerQtdPerguntas = findViewById(R.id.spinner3);
@@ -79,6 +81,10 @@ public class OpcoesActivity extends AppCompatActivity {
             intent.putExtra("dificuldade", dificuldade);
             intent.putExtra("qtdPerguntas", qtdPerguntas);
 
+            startActivity(intent);
+        });
+        btnVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }
