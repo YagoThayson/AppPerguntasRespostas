@@ -122,6 +122,7 @@ public class PerguntasActivity extends AppCompatActivity {
 
             @Override
             public void onSucesso(List<Pergunta> perguntas) {
+
                 iniciarPartida(perguntas);
             }
             @Override
@@ -161,15 +162,6 @@ public class PerguntasActivity extends AppCompatActivity {
 
     private void mostrarPergunta() {
         // Depois adicionar um IF para não entrar sempre nesse laço, mesmo que não seja necessario
-        int limite = quantidadePerguntas;
-
-        if(ajudaUsada3){
-            limite++;
-        }
-
-        //if(indiceAtual >= limite){
-        //    salvarJson();
-        //}
 
         for (int i = 0; i < IDS_CARDS.length; i++) {
             View card = findViewById(IDS_CARDS[i]);
@@ -349,6 +341,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private void carregarPerguntasLocais() {
         try {
             // Vamos mover para a pasta RAW pq existem um metodo para acessar ela de forma facinha
+            // InputStream é a classe pque recebe o conteudo de uma uma fonte de entrada
             InputStream arquivo = getResources().openRawResource(R.raw.perguntas);
             // Tava dando erro, antes dessa linha, ele só lia até o primeiro espaço em branco
             Scanner scanner = new Scanner(arquivo).useDelimiter("\\Z");
@@ -356,7 +349,7 @@ public class PerguntasActivity extends AppCompatActivity {
             // Ai a gente armazena esse SCAN em uma variavel para depois transformar em um JSONObject
             String conteudo = "";
             if (scanner.hasNext()) {
-                conteudo = scanner.next();
+                conteudo = scanner.next(); // Lê o arquivo todo de uma vez
             }
             scanner.close();
 
