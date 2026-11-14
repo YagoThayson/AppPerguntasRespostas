@@ -43,6 +43,7 @@ public class OpcoesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_opcoes);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_splash, new FragmentSplash()).commitNow();
 
         btnJogar = findViewById(R.id.Jogar);
         spinnerCategoria = findViewById(R.id.spinner1);
@@ -122,10 +123,28 @@ public class OpcoesActivity extends AppCompatActivity {
                     );
 
                     spinnerCategoria.setAdapter(adapter);
+                    Fragment fragment = getSupportFragmentManager()
+                            .findFragmentById(R.id.container_splash);
+
+                    if (fragment != null) {
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .remove(fragment)
+                                .commit();
+                    }
                 });
 
             } catch (Exception e) {
                 runOnUiThread(() -> {
+                    Fragment fragment = getSupportFragmentManager()
+                            .findFragmentById(R.id.container_splash);
+
+                    if (fragment != null) {
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .remove(fragment)
+                                .commit();
+                    }
                     btnJogar.setVisibility(View.INVISIBLE);
                     btnJogar.setEnabled(false);
                     chamarFragment();

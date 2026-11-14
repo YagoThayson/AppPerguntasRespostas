@@ -80,10 +80,8 @@ public class PerguntasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container_splash, new FragmentSplash())
-                .commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_splash, new FragmentSplash()).commitNow(); // Tem que executar imadiatamente
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

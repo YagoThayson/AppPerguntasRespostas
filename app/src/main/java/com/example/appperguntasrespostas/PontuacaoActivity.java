@@ -50,7 +50,7 @@ public class PontuacaoActivity extends AppCompatActivity {
         });
 
         btnjogarNovamente.setOnClickListener(v -> {
-            Intent intent = new Intent(this, PerguntasActivity.class);
+            Intent intent = new Intent(this, OpcoesActivity.class);
             intent.putExtra("nomeJogador", nomeJogador);
             startActivity(intent);
         });
