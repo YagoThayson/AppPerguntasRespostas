@@ -122,10 +122,13 @@ public class MainActivity extends AppCompatActivity {
                 .setVisibility(View.GONE);
     }
     public void trocarVisibilidade(View view, boolean visivel){
+        Intent musica = new Intent(this, MusicaService.class);
         if(visivel){
+            startService(musica);
             view.setVisibility(View.INVISIBLE);
         }
         else{
+            stopService(musica);
             view.setVisibility(View.VISIBLE);
 
         }
