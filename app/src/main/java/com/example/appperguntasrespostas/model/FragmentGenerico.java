@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.appperguntasrespostas.PerguntasActivity;
 import com.example.appperguntasrespostas.R;
 
 public class FragmentGenerico extends Fragment {
@@ -21,8 +20,8 @@ public class FragmentGenerico extends Fragment {
 
     public FragmentGenerico() {}
 
-    public static FragmentGenerico newInstance() {
-        FragmentGenerico fragment = new FragmentGenerico();
+    public static com.example.appperguntasrespostas.FragmentGenerico newInstance() {
+        com.example.appperguntasrespostas.FragmentGenerico fragment = new com.example.appperguntasrespostas.FragmentGenerico();
 
         return fragment;
     }

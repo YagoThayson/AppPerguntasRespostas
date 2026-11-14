@@ -1,6 +1,5 @@
 package com.example.appperguntasrespostas;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Button;
 
 // Bibliotecas para CRIAR O JSON das partidas e JSON de perguntas
 import org.json.JSONObject;
@@ -38,10 +36,8 @@ import android.os.Looper;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
-import com.example.appperguntasrespostas.model.FragmentGenerico;
 import com.example.appperguntasrespostas.model.Pergunta;
 import android.content.Intent;
-
 
 import java.util.List;
 
@@ -77,10 +73,8 @@ public class PerguntasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container_splash, new FragmentSplash())
-                .commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_splash, new FragmentSplash()).commitNow(); // Tem que executar imadiatamente
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -420,25 +414,37 @@ public class PerguntasActivity extends AppCompatActivity {
     }
 
     public void chamarFragment(String texto){
-        FragmentAjuda2 fragment = FragmentAjuda2.newInstance();
+        FragmentGenerico fragment = FragmentGenerico.newInstance();
 
 
         Bundle bundle = new Bundle();
         bundle.putString("texto",texto);
         fragment.setArguments(bundle);
 
-        // findViewById(R.id.botao_generico).setVisibility(View.VISIBLE);
+        findViewById(R.id.container_fragment_generico).setVisibility(View.VISIBLE);
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container_fragment_generico, fragment)
                 .commit();
-
         cardsRespostas[0].setClickable(false);
         cardsRespostas[1].setClickable(false);
         cardsRespostas[2].setClickable(false);
         cardsRespostas[3].setClickable(false);
         }
+        public void fecharFragment(){
+            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_fragment_generico);
+
+            if(fragment != null){
+                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            }
+
+            findViewById(R.id.container_fragment_generico).setVisibility(View.GONE);
+            cardsRespostas[0].setClickable(true);
+            cardsRespostas[1].setClickable(true);
+            cardsRespostas[2].setClickable(true);
+            cardsRespostas[3].setClickable(true);
+    }
 
         private void salvarJson(){
             try {
