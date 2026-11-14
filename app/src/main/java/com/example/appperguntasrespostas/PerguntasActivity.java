@@ -80,6 +80,10 @@ public class PerguntasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.tela_de_perguntas);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_splash, new FragmentSplash())
+                .commit();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.constraintLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -110,7 +114,7 @@ public class PerguntasActivity extends AppCompatActivity {
         txtTempo = findViewById(R.id.txtTempo);
 
 
-        quadroDePerguntas.setText("Carregando..."); // DEPOIS SUBSTITUIR ISSO AQUI POR UMA TELA DE LOADING SIMPLES EIN
+        // getSupportFragmentManager().beginTransaction().replace(R.id.container_splash, new FragmentSplash()).commit();
 
 
         quantidadePerguntas = getIntent().getIntExtra("qtdPerguntas", 10); // Depois criar metodos que receberão respostas da tela de configuração de partida. LEMBRE DO MAX DE 50
@@ -144,8 +148,12 @@ public class PerguntasActivity extends AppCompatActivity {
         handler.removeCallbacksAndMessages(null);
     }
     private void iniciarPartida(List<Pergunta> perguntas){
-        if (perguntas.isEmpty()) {
-            quadroDePerguntas.setText("Nenhuma pergunta encontrada.");
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_splash);
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+
+            if (perguntas.isEmpty()) {
+                quadroDePerguntas.setText("Nenhuma pergunta encontrada.");
             return;
         }
 
@@ -466,10 +474,10 @@ public class PerguntasActivity extends AppCompatActivity {
             }
             // Se ele der que não dá para acessar ROOT, só no terminal
             // adb shell
-            // cd files
+            // cd /data/data/com.example.appperguntasrespostas/files
             // cat resultados.json
-            // SHOW!!
             // Se quiser excluir
+            // rm resultador.json
         }
 
     private void piscarCard(CardView card, int corRes) {
@@ -517,11 +525,10 @@ public class PerguntasActivity extends AppCompatActivity {
     private void proximaPergunta() {
         indiceAtual++;
 
-        if (indiceAtual < quantidadePerguntas) {
+        if (perguntasRespondidas < quantidadePerguntas) {
             mostrarPergunta();
         } else {
             // Log.d("TRIVIA", resultado.toString(4))
-            // Aqui você coloca o bloco que já possui
             salvarJson();
         }
     }

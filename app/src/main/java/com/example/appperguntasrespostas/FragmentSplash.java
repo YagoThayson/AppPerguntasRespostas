@@ -33,6 +33,6 @@ public class FragmentSplash extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        logo_principal.findViewById(R.id.logo_principal);
+        logo_principal = view.findViewById(R.id.logo_principal);
     }
 }
