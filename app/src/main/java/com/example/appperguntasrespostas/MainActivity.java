@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
             String nomeJogador = edtNome.getText().toString().trim();
 
             if (nomeJogador.isEmpty()) {
-                String texto = "Nome está vazio";
-                chamarFragment(texto);
+                chamarFragment("Nome está vazio");
                 return;
             }
 

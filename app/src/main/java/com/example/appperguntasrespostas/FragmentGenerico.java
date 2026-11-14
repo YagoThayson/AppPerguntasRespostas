@@ -50,6 +50,13 @@ public class FragmentGenerico extends Fragment {
 
         txtGenerico.setText(texto);
 
-        botaoGenerico.setOnClickListener(v ->((PerguntasActivity) requireActivity()).fecharFragment());
+        // GAMBIARRA ENORME
+        botaoGenerico.setOnClickListener(v -> {
+            if (requireActivity() instanceof MainActivity) {
+                ((MainActivity) requireActivity()).fecharfragment();
+            } else if (requireActivity() instanceof PerguntasActivity) {
+                ((PerguntasActivity) requireActivity()).fecharfragment();
+            }
+        });
     }
 }

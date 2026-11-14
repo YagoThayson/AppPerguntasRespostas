@@ -432,7 +432,7 @@ public class PerguntasActivity extends AppCompatActivity {
         cardsRespostas[2].setClickable(false);
         cardsRespostas[3].setClickable(false);
         }
-        public void fecharFragment(){
+        public void fecharfragment(){
             Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_fragment_generico);
 
             if(fragment != null){
