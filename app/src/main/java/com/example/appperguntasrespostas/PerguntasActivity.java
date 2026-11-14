@@ -15,7 +15,6 @@ import android.widget.Button;
 // Bibliotecas para CRIAR O JSON das partidas e JSON de perguntas
 import org.json.JSONObject;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 import org.json.JSONArray;
@@ -41,12 +40,10 @@ import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import com.example.appperguntasrespostas.model.FragmentGenerico;
 import com.example.appperguntasrespostas.model.Pergunta;
-// import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import android.content.Intent;
-import com.example.appperguntasrespostas.PontuacaoActivity; // acho q nem precisa pq tá no mesmo packpage. Pesquisa dps
+
 
 import java.util.List;
-import java.util.Scanner;
 
 public class PerguntasActivity extends AppCompatActivity {
 
@@ -250,6 +247,10 @@ public class PerguntasActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container_tempo_esgotado, new TempoEsgotado())
                 .commit();
+        cardsRespostas[0].setClickable(false);
+        cardsRespostas[1].setClickable(false);
+        cardsRespostas[2].setClickable(false);
+        cardsRespostas[3].setClickable(false);
     }
 
     public void continuarAposTempoEsgotado() {
@@ -268,6 +269,11 @@ public class PerguntasActivity extends AppCompatActivity {
 
         findViewById(R.id.container_tempo_esgotado)
                 .setVisibility(View.GONE);
+
+        cardsRespostas[0].setClickable(true);
+        cardsRespostas[1].setClickable(true);
+        cardsRespostas[2].setClickable(true);
+        cardsRespostas[3].setClickable(true);
 
         respondida = true;
         processarResposta(false, "Tempo esgotado",-1 );
@@ -414,37 +420,26 @@ public class PerguntasActivity extends AppCompatActivity {
     }
 
     public void chamarFragment(String texto){
-        FragmentGenerico fragment = FragmentGenerico.newInstance();
+        FragmentAjuda2 fragment = FragmentAjuda2.newInstance();
 
 
         Bundle bundle = new Bundle();
         bundle.putString("texto",texto);
         fragment.setArguments(bundle);
 
-        findViewById(R.id.container_fragment_generico).setVisibility(View.VISIBLE);
+        // findViewById(R.id.botao_generico).setVisibility(View.VISIBLE);
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container_fragment_generico, fragment)
                 .commit();
+
+        cardsRespostas[0].setClickable(false);
+        cardsRespostas[1].setClickable(false);
+        cardsRespostas[2].setClickable(false);
+        cardsRespostas[3].setClickable(false);
         }
 
-        public void fecharfragment(){
-            Fragment fragment = getSupportFragmentManager()
-                    .findFragmentById(R.id.container_fragment_generico);
-
-            if (fragment != null) {
-
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .remove(fragment)
-                        .commit();
-
-            }
-
-            findViewById(R.id.container_tempo_esgotado)
-                    .setVisibility(View.GONE);
-        }
         private void salvarJson(){
             try {
                 // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
@@ -507,21 +502,6 @@ public class PerguntasActivity extends AppCompatActivity {
             }
         return -1;
         }
-//    private void configurarCliquesRespostas() {
-//        for (int i = 0; i < cardsRespostas.length; i++) {
-//            final int pos = i;
-//            cardsRespostas[i].setOnClickListener(v -> {
-//                if (respondida || listaPerguntas == null) return;
-//                respondida = true;
-//
-//                if (timer != null) timer.cancel();
-//
-//                boolean correta = isCorreta(txtRespostas[pos].getText().toString());
-//                String escolhida = txtRespostas[pos].getText().toString();
-//                processarResposta(correta, escolhida ,pos);
-//            });
-//        }
-//    }   // <- esta chave fecha o método
     private void proximaPergunta() {
         indiceAtual++;
 
