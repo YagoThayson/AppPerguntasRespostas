@@ -13,9 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.appperguntasrespostas.model.FragmentGenerico;
-import com.example.appperguntasrespostas.model.Pergunta;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override

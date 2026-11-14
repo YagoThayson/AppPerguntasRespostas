@@ -20,8 +20,6 @@ import android.widget.ArrayAdapter;
 
 import android.util.Log;
 
-import com.example.appperguntasrespostas.model.FragmentGenerico;
-
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.util.Scanner;

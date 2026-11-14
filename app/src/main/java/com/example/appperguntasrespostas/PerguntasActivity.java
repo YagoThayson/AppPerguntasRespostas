@@ -1,6 +1,5 @@
 package com.example.appperguntasrespostas;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,12 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Button;
 
 // Bibliotecas para CRIAR O JSON das partidas e JSON de perguntas
 import org.json.JSONObject;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 import org.json.JSONArray;
@@ -39,14 +36,11 @@ import android.os.Looper;
 
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
-import com.example.appperguntasrespostas.model.FragmentGenerico;
 import com.example.appperguntasrespostas.model.Pergunta;
 // import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import android.content.Intent;
-import com.example.appperguntasrespostas.PontuacaoActivity; // acho q nem precisa pq tá no mesmo packpage. Pesquisa dps
 
 import java.util.List;
-import java.util.Scanner;
 
 public class PerguntasActivity extends AppCompatActivity {
 
@@ -426,23 +420,16 @@ public class PerguntasActivity extends AppCompatActivity {
                 .replace(R.id.container_fragment_generico, fragment)
                 .commit();
         }
+        public void fecharFragment(){
+            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_fragment_generico);
 
-        public void fecharfragment(){
-            Fragment fragment = getSupportFragmentManager()
-                    .findFragmentById(R.id.container_fragment_generico);
-
-            if (fragment != null) {
-
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .remove(fragment)
-                        .commit();
-
+            if(fragment != null){
+                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
             }
 
-            findViewById(R.id.container_tempo_esgotado)
-                    .setVisibility(View.GONE);
-        }
+            findViewById(R.id.container_fragment_generico).setVisibility(View.GONE);
+    }
+
         private void salvarJson(){
             try {
                 // Esse metodo put só funciona dentro de um try, catch, então vou lançar uma exception generica msm
@@ -505,21 +492,6 @@ public class PerguntasActivity extends AppCompatActivity {
             }
         return -1;
         }
-//    private void configurarCliquesRespostas() {
-//        for (int i = 0; i < cardsRespostas.length; i++) {
-//            final int pos = i;
-//            cardsRespostas[i].setOnClickListener(v -> {
-//                if (respondida || listaPerguntas == null) return;
-//                respondida = true;
-//
-//                if (timer != null) timer.cancel();
-//
-//                boolean correta = isCorreta(txtRespostas[pos].getText().toString());
-//                String escolhida = txtRespostas[pos].getText().toString();
-//                processarResposta(correta, escolhida ,pos);
-//            });
-//        }
-//    }   // <- esta chave fecha o método
     private void proximaPergunta() {
         indiceAtual++;
 
