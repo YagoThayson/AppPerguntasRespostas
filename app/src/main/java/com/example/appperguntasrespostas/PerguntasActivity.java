@@ -72,7 +72,7 @@ public class PerguntasActivity extends AppCompatActivity {
     private ImageView xAjuda1, xAjuda2, xAjuda3;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private int quantidadePerguntas;
-
+    private int perguntasRespondidas = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -171,15 +171,6 @@ public class PerguntasActivity extends AppCompatActivity {
 
     private void mostrarPergunta() {
         // Depois adicionar um IF para não entrar sempre nesse laço, mesmo que não seja necessario
-        int limite = quantidadePerguntas;
-
-        if(ajudaUsada3){
-            limite++;
-        }
-
-        //if(indiceAtual >= limite){
-        //    salvarJson();
-        //}
 
         for (int i = 0; i < IDS_CARDS.length; i++) {
             View card = findViewById(IDS_CARDS[i]);
@@ -290,7 +281,7 @@ public class PerguntasActivity extends AppCompatActivity {
             }
             piscarCard(cardsRespostas[indiceCorreto()], R.color.verde_confirmacao);
         }
-
+        perguntasRespondidas++;
         Log.d("TRIVIA", escolhida + " -> " + (correta ? "CORRETA" : "INCORRETA") + " | acertos: " + acertos);
 
         handler.postDelayed(this::proximaPergunta, 2000);
@@ -353,13 +344,18 @@ public class PerguntasActivity extends AppCompatActivity {
         }
         findViewById(R.id.xAjuda3).setVisibility(View.VISIBLE);
         indiceAtual++;
-        quantidadePerguntas--;
-        mostrarPergunta();
+        if(indiceAtual < listaPerguntas.size()){
+            mostrarPergunta();
+        }else{
+            salvarJson();
+        }
+
     }
 
     private void carregarPerguntasLocais() {
         try {
             // Vamos mover para a pasta RAW pq existem um metodo para acessar ela de forma facinha
+            // InputStream é a classe pque recebe o conteudo de uma uma fonte de entrada
             InputStream arquivo = getResources().openRawResource(R.raw.perguntas);
             // Tava dando erro, antes dessa linha, ele só lia até o primeiro espaço em branco
             Scanner scanner = new Scanner(arquivo).useDelimiter("\\Z");
@@ -367,7 +363,7 @@ public class PerguntasActivity extends AppCompatActivity {
             // Ai a gente armazena esse SCAN em uma variavel para depois transformar em um JSONObject
             String conteudo = "";
             if (scanner.hasNext()) {
-                conteudo = scanner.next();
+                conteudo = scanner.next(); // Lê o arquivo todo de uma vez
             }
             scanner.close();
 
@@ -400,7 +396,7 @@ public class PerguntasActivity extends AppCompatActivity {
             indiceAtual = 0; // só para começar pela primeira pergunta
             Collections.shuffle(listaPerguntas);
             // Metodo massa DEMAIS esse SUBLIST, "ANOTAR ELE PARA PROJETOS FUTUROS"
-            listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, 11));
+            listaPerguntas = new ArrayList<>(listaPerguntas.subList(0, quantidadePerguntas + 1));
 
             iniciarPartida(listaPerguntas);
 
@@ -449,7 +445,7 @@ public class PerguntasActivity extends AppCompatActivity {
                 resultado.put("jogador", nomeJogador);
                 resultado.put("dificuldade", config.getDificuldade());
                 resultado.put("acertos", acertos);
-                resultado.put("totalPerguntas", listaPerguntas.size()-1);
+                resultado.put("totalPerguntas", perguntasRespondidas);
 
                 // Escrever e salvar arquivo JSON para ter persistência de DADOS
                 FileOutputStream arquivo = openFileOutput("resultados.json", MODE_APPEND); // Esse mode_append signigica que eu quero adicionar algo, PRIVATE seria sobrescrever por exemplo.
@@ -462,7 +458,7 @@ public class PerguntasActivity extends AppCompatActivity {
                 intent.putExtra("nomeJogador", nomeJogador);
                 intent.putExtra("dificuldade", config.getDificuldade());
                 intent.putExtra("Acertos", acertos);
-                intent.putExtra("TotalPerguntas", listaPerguntas.size()-1);
+                intent.putExtra("TotalPerguntas", perguntasRespondidas);
                 startActivity(intent);
 
             }catch (Exception e ){
@@ -473,6 +469,7 @@ public class PerguntasActivity extends AppCompatActivity {
             // cd files
             // cat resultados.json
             // SHOW!!
+            // Se quiser excluir
         }
 
     private void piscarCard(CardView card, int corRes) {
@@ -520,10 +517,8 @@ public class PerguntasActivity extends AppCompatActivity {
     private void proximaPergunta() {
         indiceAtual++;
 
-        if (indiceAtual < listaPerguntas.size()) {
-
+        if (indiceAtual < quantidadePerguntas) {
             mostrarPergunta();
-
         } else {
             // Log.d("TRIVIA", resultado.toString(4))
             // Aqui você coloca o bloco que já possui

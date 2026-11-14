@@ -1,5 +1,5 @@
 <resources>
-    <string name="PANDORA">AppPerguntasRespostas</string>
+    <string name="app_name">PANDORA</string>
     <!-- strings de acessibilidade para os botoes de ajuda -->
     <string name="ajuda_metade">tira metade das alternativas</string>
     <string name="ajuda_especialista">chama um especialista no assunto</string>
