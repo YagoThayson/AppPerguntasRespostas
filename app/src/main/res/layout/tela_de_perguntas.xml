@@ -297,7 +297,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-// Adicionando fragment para o container da tela de splash
+    <!-- Esqueceu de adicionar o container da tela de splash fera? -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_splash"
         android:layout_width="match_parent"
