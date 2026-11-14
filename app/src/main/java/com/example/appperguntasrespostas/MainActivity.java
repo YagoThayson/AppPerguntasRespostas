@@ -16,6 +16,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.content.Context;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
     private ConexaoReceiver conexaoReceiver;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         EditText edtNome = findViewById(R.id.NomeDeUsuario);
         Button btnIniciarPartida = findViewById(R.id.IniciarPartida);
         Button btnHistorico = findViewById(R.id.Historico);
+        ImageButton btnVolume = findViewById(R.id.volume);
+        View volumeMutado = findViewById(R.id.volume_mutado);
     // Estou fazendo a verificação quando aperta no botão, senti que criar uma classe jogador era desnecessari
         // então resolvi tornar jogador um atributo da partida, acho que fica mais simples
         btnIniciarPartida.setOnClickListener(v -> {
@@ -70,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         btnHistorico.setOnClickListener(v -> {
             Intent intent = new Intent(this, HistoricoActivity.class);
             startActivity(intent);
+        });
+
+        btnVolume.setOnClickListener(v ->{
+            trocarVisibilidade(volumeMutado, volumeMutado.getVisibility() != View.INVISIBLE);
         });
     }
     // Só para acabar com o BROADCASTRECEIVER quando a activity é destruida
@@ -114,5 +121,14 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.container_fragment_generico)
                 .setVisibility(View.GONE);
+    }
+    public void trocarVisibilidade(View view, boolean visivel){
+        if(visivel){
+            view.setVisibility(View.INVISIBLE);
+        }
+        else{
+            view.setVisibility(View.VISIBLE);
+
+        }
     }
 }
