@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/text_view_arredondado"
+    android:backgroundTint="@color/azul_escuro"
+    android:id="@+id/fragmentAjuda2"
+    >
+
+    <TextView
+        android:id="@+id/txt_generico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="HJ TEM GOL DO RIBAMAR!"
+        android:textColor="@color/white"
+        android:textSize="40sp"/>
+
+    <Button
+        android:id="@+id/botao_generico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:text="OK"
+        android:textSize="32sp"/>
+
+
+</FrameLayout>

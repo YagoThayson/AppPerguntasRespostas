@@ -37,7 +37,6 @@ import android.os.Looper;
 import com.example.appperguntasrespostas.data.network.OpenTriviaClient;
 import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import com.example.appperguntasrespostas.model.Pergunta;
-// import com.example.appperguntasrespostas.model.ConfiguracaoPartida;
 import android.content.Intent;
 
 import java.util.List;
@@ -242,6 +241,10 @@ public class PerguntasActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container_tempo_esgotado, new TempoEsgotado())
                 .commit();
+        cardsRespostas[0].setClickable(false);
+        cardsRespostas[1].setClickable(false);
+        cardsRespostas[2].setClickable(false);
+        cardsRespostas[3].setClickable(false);
     }
 
     public void continuarAposTempoEsgotado() {
@@ -260,6 +263,11 @@ public class PerguntasActivity extends AppCompatActivity {
 
         findViewById(R.id.container_tempo_esgotado)
                 .setVisibility(View.GONE);
+
+        cardsRespostas[0].setClickable(true);
+        cardsRespostas[1].setClickable(true);
+        cardsRespostas[2].setClickable(true);
+        cardsRespostas[3].setClickable(true);
 
         respondida = true;
         processarResposta(false, "Tempo esgotado",-1 );
@@ -419,6 +427,10 @@ public class PerguntasActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container_fragment_generico, fragment)
                 .commit();
+        cardsRespostas[0].setClickable(false);
+        cardsRespostas[1].setClickable(false);
+        cardsRespostas[2].setClickable(false);
+        cardsRespostas[3].setClickable(false);
         }
         public void fecharFragment(){
             Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container_fragment_generico);
@@ -428,6 +440,10 @@ public class PerguntasActivity extends AppCompatActivity {
             }
 
             findViewById(R.id.container_fragment_generico).setVisibility(View.GONE);
+            cardsRespostas[0].setClickable(true);
+            cardsRespostas[1].setClickable(true);
+            cardsRespostas[2].setClickable(true);
+            cardsRespostas[3].setClickable(true);
     }
 
         private void salvarJson(){

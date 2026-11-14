@@ -236,6 +236,8 @@
         android:autoSizeStepGranularity="1sp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
         app:layout_constraintBottom_toTopOf="@+id/botoes_de_ajuda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
