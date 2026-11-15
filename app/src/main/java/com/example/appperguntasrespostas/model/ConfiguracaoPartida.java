@@ -2,7 +2,7 @@ package com.example.appperguntasrespostas.model;
 
 // Se tiver mais alguma configuração que a gente quiser adicionar mandem mensagem no grupo PFVR
 public class ConfiguracaoPartida {
-    private int categoriaId;      // id da categoria no Open Trivia DB (ex.: 9 = General Knowledge)
+    private int categoriaId;      // id da categoria no Open Trivia DB (ex: 9 = General Knowledge)
     private String categoriaNome;
     private String dificuldade;   // "easy", "medium" ou "hard"
     private int quantidade;       // a API aceita de 1 a 50 em uma requesição

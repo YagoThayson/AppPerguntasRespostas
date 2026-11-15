@@ -49,8 +49,7 @@ public class OpenTriviaClient {
         });
     }
 
-    private RespostaApi requisitar(ConfiguracaoPartida config)
-            throws Exception {
+    private RespostaApi requisitar(ConfiguracaoPartida config) throws Exception {
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) new URL(montarUrl(config)).openConnection();
@@ -94,7 +93,6 @@ public class OpenTriviaClient {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(in, "UTF-8"))) {
             String linha;
-
             while ((linha = reader.readLine()) != null) {
                 conteudo += linha;
             }

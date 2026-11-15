@@ -26,7 +26,7 @@ public class HistoricoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.historico);
-        Uri uri = Uri.parse("content://com.example.appperguntasrespostas.provider/historico");
+        // Uri uri = Uri.parse("content://com.example.appperguntasrespostas.provider/historico");
 
         // O getContent retorna o objeto, e o query consulta o contentProvider
         // Cursor cursor = getContentResolver().query(uri, null, null, null, null);

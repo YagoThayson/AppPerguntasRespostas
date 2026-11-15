@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.database.MatrixCursor;
 import java.util.Scanner;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -58,7 +59,7 @@ public class HistoricoProvider extends ContentProvider {
             // Transformando o JSON em um objeto pq tava dando NULL POINTER
             while (leitor.hasNextLine()) {
 
-                Log.d("HISTORICO", "Quantidade de registros: " + cursor.getCount());
+                // Log.d("HISTORICO", "Quantidade de registros: " + cursor.getCount());
                 JSONObject resultado = new JSONObject(leitor.nextLine());
 
                 cursor.addRow(new Object[]{
@@ -73,6 +74,7 @@ public class HistoricoProvider extends ContentProvider {
             leitor.close();
 
         } catch (Exception e) {
+            Toast.makeText(getContext(), "Erro ao consultar histórico", Toast.LENGTH_SHORT).show();
             Log.e("HistoricoProvider", "Erro ao consultar histórico", e);
         }
 

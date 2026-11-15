@@ -1,15 +1,15 @@
 package com.example.appperguntasrespostas.model;
 
-// Partida.java
-public class Partida {
-    private long id;
-    private long jogadorId;
-    private long dataHora;        // System.currentTimeMillis()
-    private String categoria;
-    private String dificuldade;
-    private int totalQuestoes;
-    private int acertos;
-    private int pontuacao;
+        // Partida.java
+        public class Partida {
+            private long id;
+            private long jogadorId;
+            private long dataHora;        // System.currentTimeMillis()
+            private String categoria;
+            private String dificuldade;
+            private int totalQuestoes;
+            private int acertos;
+            private int pontuacao;
 
     public Partida(long jogadorId, long dataHora, String categoria, String dificuldade,
                    int totalQuestoes, int acertos, int pontuacao) {
