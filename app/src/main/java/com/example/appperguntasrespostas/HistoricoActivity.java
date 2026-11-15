@@ -91,7 +91,7 @@ public class HistoricoActivity extends AppCompatActivity {
         if(cursor.moveToLast()){
             for(int i = 0; i < 5; i++){
                 jogadores[i].setText(cursor.getString(0));
-                dificuldades[i].setText(cursor.getString(3)); // quarta coluna do provider (Acho que é o 3)
+                dificuldades[i].setText(cursor.getString(3)); // quarta coluna do provider
                 pontos[i].setText(String.valueOf(cursor.getInt(1)* 100));
 
 

@@ -62,7 +62,8 @@ public class PerguntasActivity extends AppCompatActivity {
     private boolean ajudaUsada2 = false;
     private boolean ajudaUsada3 = false;
     private static final int[] IDS_CARDS ={ R.id.Resposta1, R.id.Resposta2, R.id.Resposta3, R.id.Resposta4 };
-    private ImageView xAjuda1, xAjuda2, xAjuda3;
+
+    // private ImageView xAjuda1, xAjuda2, xAjuda3;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private int quantidadePerguntas;
     private int perguntasRespondidas = 0;

@@ -98,7 +98,7 @@ public class OpcoesActivity extends AppCompatActivity {
                 HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
 
                 Scanner scanner = new Scanner(conexao.getInputStream());
-                String resposta = scanner.useDelimiter("\\A").next();
+                String resposta = scanner.useDelimiter("\\Z").next();
 
                 JSONObject json = new JSONObject(resposta);
                 JSONArray categorias = json.getJSONArray("trivia_categories");
@@ -196,21 +196,5 @@ public class OpcoesActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container_offline, fragment)
                 .commit();
-    }
-    public void fecharfragment(){
-        Fragment fragment = getSupportFragmentManager()
-                .findFragmentById(R.id.container_offline);
-
-        if (fragment != null) {
-
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .remove(fragment)
-                    .commit();
-
-        }
-
-        findViewById(R.id.container_offline)
-                .setVisibility(View.GONE);
     }
 }
